@@ -1,0 +1,12 @@
+# ignore backup files
+*.backup
+# ignore files renamed *.OLD
+*.OLD
+# ignore files in the ./private/ folder
+./private/*
+private/*
+# ignore terraform autogenerate files
+.terraform/
+.terraform/*
+terraform.tfstate
+

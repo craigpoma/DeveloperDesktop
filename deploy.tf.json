@@ -1,0 +1,108 @@
+{
+  "provider": 
+  {
+    "aws": 
+    {
+      "access_key": "${var.access_key}",
+      "secret_key": "${var.secret_key}",
+      "region": "${var.region}",
+      "version": "~> 2.7"
+    }
+  },
+  "resource": 
+  {
+      "aws_instance": 
+      {
+        "base": {
+                    "ami": "${var.ami}",
+                    "instance_type": "${var.instance_type}",
+                    "key_name": "${var.key_name}",
+                    "vpc_security_group_ids": "${var.vpc_security_group_ids}",
+                    "subnet_id": "${var.subnet_id}",
+                    "private_ip": "${var.private_ip_address}",
+                    "user_data" : "${file(\"./files/prepNode.sh\")}",
+
+                    "root_block_device": 
+                    {
+                      "volume_size": "10",
+                      "volume_type": "gp2",
+                      "delete_on_termination": "true"
+                    },
+
+                    "tags": 
+                    {
+                      "Name": "${var.hostname}",
+                      "IAC_Tool": "terraform",
+                      "CLAP_ON": "${var.clap_on}",
+                      "CLAP_OFF": "${var.clap_off}",
+                      "POC": "${var.poc}"
+                    },
+
+                    "connection": 
+                    {
+                      "type": "ssh",
+                      "timeout": "300s",
+                      "user": "${var.ami_default_user}",
+                      "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                      "agent": "false",
+                      "host" : "${aws_instance.base.public_ip}"
+                    },
+
+                    "provisioner": 
+                    [
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/prepNode.sh",
+                             "destination" : "/tmp/prepNode.sh",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/completed_upload.txt",
+                             "destination" : "/tmp/completed_upload.txt",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },
+                      {
+                        "remote-exec": 
+                        {
+                             "inline": 
+                             [
+                              "sudo yum -y update",
+                              "sudo yum -y install nano gcc gcc-c++"
+                             ],
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "1200s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      }
+                    ] 
+                }
+      }
+  }
+}
