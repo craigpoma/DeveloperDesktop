@@ -1,4 +1,5 @@
 # DeveloperDesktop
+[![Build Status](https://travis-ci.com/cpoma/DeveloperDesktop.svg?branch=master)](https://travis-ci.com/cpoma/DeveloperDesktop)
 
 This short Terraform example will deploy a Redhat 7.6 AMI, patch it with YUM, then install the nano, gcc, and gcc-gcc++ packages. Lastly, it will download the AWS-CLI bundle and install it.
 
