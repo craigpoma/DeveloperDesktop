@@ -10,6 +10,7 @@ It is also assumed you have and AWS Acocunt and know the AWS_SECRET_KEY and AWS_
 
 ## Usage
 Make sure to update the variables.tf file with the proper Subnet, Security groups, etc for your AWS account.
+Update the references to ./private/CraigPomaUMUC.pem to be your path to your PEM file in the deploy.tf.json file.
 To deploy the node - 
 ```
 terraform apply -var "secret_key=YOUR_KEY_VALUE" -var "access_key=YOUR_KEY_VALUE"
