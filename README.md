@@ -17,6 +17,9 @@ terraform apply -var "secret_key=YOUR_KEY_VALUE" -var "access_key=YOUR_KEY_VALUE
 ```
 
 ## Contributing
+
+See CONTRIBUTING.md
+
 Feel free to:
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
