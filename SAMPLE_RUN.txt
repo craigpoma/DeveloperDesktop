@@ -1,0 +1,1334 @@
+cpoma@xen: ~/My Documents/UMUC/CodeSamples/DeveloperDesktop (master)
+
+terraform.exe apply -var "secret_key=YOUR_KEY_HERE" -var "access_key=YOUR_KEY_HERE"
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.base will be created
+  + resource "aws_instance" "base" {
+      + ami                          = "ami-000db10762d0c4c05"
+      + arn                          = (known after apply)
+      + associate_public_ip_address  = (known after apply)
+      + availability_zone            = (known after apply)
+      + cpu_core_count               = (known after apply)
+      + cpu_threads_per_core         = (known after apply)
+      + get_password_data            = false
+      + host_id                      = (known after apply)
+      + id                           = (known after apply)
+      + instance_state               = (known after apply)
+      + instance_type                = "t2.micro"
+      + ipv6_address_count           = (known after apply)
+      + ipv6_addresses               = (known after apply)
+      + key_name                     = "CraigPomaUMUC"
+      + network_interface_id         = (known after apply)
+      + password_data                = (known after apply)
+      + placement_group              = (known after apply)
+      + primary_network_interface_id = (known after apply)
+      + private_dns                  = (known after apply)
+      + private_ip                   = "172.31.1.193"
+      + public_dns                   = (known after apply)
+      + public_ip                    = (known after apply)
+      + security_groups              = (known after apply)
+      + source_dest_check            = true
+      + subnet_id                    = "subnet-a053e9c7"
+      + tags                         = {
+          + "CLAP_OFF" = "0 22 * * 1-5 *"
+          + "CLAP_ON"  = "0 7 * * 1-5 *"
+          + "IAC_Tool" = "terraform"
+          + "Name"     = "DeveloperDesktop"
+          + "POC"      = "Craig Poma"
+        }
+      + tenancy                      = (known after apply)
+      + user_data                    = "0daff4c9630e26d2dd7aab7419ebb7dc02081f92"
+      + volume_tags                  = (known after apply)
+      + vpc_security_group_ids       = [
+          + "sg-00978e100f38abc81",
+          + "sg-b0a628fd",
+        ]
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + snapshot_id           = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = true
+          + iops                  = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = 10
+          + volume_type           = "gp2"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.base: Creating...
+aws_instance.base: Still creating... [10s elapsed]
+aws_instance.base: Still creating... [20s elapsed]
+aws_instance.base: Still creating... [30s elapsed]
+aws_instance.base: Provisioning with 'file'...
+aws_instance.base: Still creating... [40s elapsed]
+aws_instance.base: Still creating... [50s elapsed]
+aws_instance.base: Still creating... [1m0s elapsed]
+aws_instance.base: Still creating... [1m10s elapsed]
+aws_instance.base: Still creating... [1m20s elapsed]
+aws_instance.base: Still creating... [1m30s elapsed]
+aws_instance.base: Still creating... [1m40s elapsed]
+aws_instance.base: Provisioning with 'file'...
+aws_instance.base: Provisioning with 'remote-exec'...
+aws_instance.base (remote-exec): Connecting to remote host via SSH...
+aws_instance.base (remote-exec):   Host: 18.207.138.108
+aws_instance.base (remote-exec):   User: ec2-user
+aws_instance.base (remote-exec):   Password: false
+aws_instance.base (remote-exec):   Private key: true
+aws_instance.base (remote-exec):   Certificate: false
+aws_instance.base (remote-exec):   SSH Agent: false
+aws_instance.base (remote-exec):   Checking Host Key: false
+aws_instance.base (remote-exec): Connected!
+aws_instance.base (remote-exec): Loaded plugins: amazon-id, rhui-lb,
+aws_instance.base (remote-exec):               : search-disabled-repos
+aws_instance.base (remote-exec): Existing lock /var/run/yum.pid: another copy is running as pid 4216.
+aws_instance.base (remote-exec): Another app is currently holding the yum lock; waiting for it to exit...
+aws_instance.base (remote-exec):   The other application is: yum
+aws_instance.base (remote-exec):     Memory :  32 M RSS (443 MB VSZ)
+aws_instance.base (remote-exec):     Started: Mon Jul  8 15:10:18 2019 - 00:11 ago
+aws_instance.base (remote-exec):     State  : Running, pid: 4216
+aws_instance.base (remote-exec): Another app is currently holding the yum lock; waiting for it to exit...
+aws_instance.base (remote-exec):   The other application is: yum
+aws_instance.base (remote-exec):     Memory :  32 M RSS (443 MB VSZ)
+aws_instance.base (remote-exec):     Started: Mon Jul  8 15:10:18 2019 - 00:13 ago
+aws_instance.base (remote-exec):     State  : Running, pid: 4216
+aws_instance.base (remote-exec): Another app is currently holding the yum lock; waiting for it to exit...
+aws_instance.base (remote-exec):   The other application is: yum
+aws_instance.base (remote-exec):     Memory :  54 M RSS (465 MB VSZ)
+aws_instance.base (remote-exec):     Started: Mon Jul  8 15:10:18 2019 - 00:15 ago
+aws_instance.base (remote-exec):     State  : Running, pid: 4216
+aws_instance.base: Still creating... [1m50s elapsed]
+aws_instance.base (remote-exec): Resolving Dependencies
+aws_instance.base (remote-exec): --> Running transaction check
+aws_instance.base (remote-exec): ---> Package NetworkManager.x86_64 1:1.12.0-8.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package NetworkManager.x86_64 1:1.12.0-10.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package NetworkManager-config-server.noarch 1:1.12.0-8.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package NetworkManager-config-server.noarch 1:1.12.0-10.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package NetworkManager-libnm.x86_64 1:1.12.0-8.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package NetworkManager-libnm.x86_64 1:1.12.0-10.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package NetworkManager-team.x86_64 1:1.12.0-8.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package NetworkManager-team.x86_64 1:1.12.0-10.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package NetworkManager-tui.x86_64 1:1.12.0-8.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package NetworkManager-tui.x86_64 1:1.12.0-10.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package bind-libs-lite.x86_64 32:9.9.4-73.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package bind-libs-lite.x86_64 32:9.9.4-74.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package bind-license.noarch 32:9.9.4-73.el7_6 will be updated
+aws_instance.base (remote-exec): ---> Package bind-license.noarch 32:9.9.4-74.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package cloud-init.x86_64 0:18.2-1.el7_6.1 will be updated
+aws_instance.base (remote-exec): ---> Package cloud-init.x86_64 0:18.2-1.el7_6.2 will be an update
+aws_instance.base (remote-exec): ---> Package dbus.x86_64 1:1.10.24-12.el7 will be updated
+aws_instance.base (remote-exec): ---> Package dbus.x86_64 1:1.10.24-13.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package dbus-libs.x86_64 1:1.10.24-12.el7 will be updated
+aws_instance.base (remote-exec): ---> Package dbus-libs.x86_64 1:1.10.24-13.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package device-mapper.x86_64 7:1.02.149-10.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package device-mapper.x86_64 7:1.02.149-10.el7_6.8 will be an update
+aws_instance.base (remote-exec): ---> Package device-mapper-libs.x86_64 7:1.02.149-10.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package device-mapper-libs.x86_64 7:1.02.149-10.el7_6.8 will be an update
+aws_instance.base (remote-exec): ---> Package glib2.x86_64 0:2.56.1-2.el7 will be updated
+aws_instance.base (remote-exec): ---> Package glib2.x86_64 0:2.56.1-4.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package glibc.x86_64 0:2.17-260.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package glibc.x86_64 0:2.17-260.el7_6.6 will be an update
+aws_instance.base (remote-exec): ---> Package glibc-common.x86_64 0:2.17-260.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package glibc-common.x86_64 0:2.17-260.el7_6.6 will be an update
+aws_instance.base (remote-exec): ---> Package iproute.x86_64 0:4.11.0-14.el7 will be updated
+aws_instance.base (remote-exec): ---> Package iproute.x86_64 0:4.11.0-14.el7_6.2 will be an update
+aws_instance.base (remote-exec): ---> Package kernel.x86_64 0:3.10.0-957.21.3.el7 will be installed
+aws_instance.base (remote-exec): --> Processing Dependency: linux-firmware >= 20180911-68 for package: kernel-3.10.0-957.21.3.el7.x86_64
+aws_instance.base (remote-exec): ---> Package kernel-tools.x86_64 0:3.10.0-957.5.1.el7 will be updated
+aws_instance.base (remote-exec): ---> Package kernel-tools.x86_64 0:3.10.0-957.21.3.el7 will be an update
+aws_instance.base (remote-exec): ---> Package kernel-tools-libs.x86_64 0:3.10.0-957.5.1.el7 will be updated
+aws_instance.base (remote-exec): ---> Package kernel-tools-libs.x86_64 0:3.10.0-957.21.3.el7 will be an update
+aws_instance.base (remote-exec): ---> Package kexec-tools.x86_64 0:2.0.15-21.el7 will be updated
+aws_instance.base (remote-exec): ---> Package kexec-tools.x86_64 0:2.0.15-21.el7_6.3 will be an update
+aws_instance.base (remote-exec): ---> Package libblkid.x86_64 0:2.23.2-59.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libblkid.x86_64 0:2.23.2-59.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package libgcc.x86_64 0:4.8.5-36.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libgcc.x86_64 0:4.8.5-36.el7_6.2 will be an update
+aws_instance.base (remote-exec): ---> Package libgomp.x86_64 0:4.8.5-36.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libgomp.x86_64 0:4.8.5-36.el7_6.2 will be an update
+aws_instance.base (remote-exec): ---> Package libgudev1.x86_64 0:219-62.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package libgudev1.x86_64 0:219-62.el7_6.7 will be an update
+aws_instance.base (remote-exec): ---> Package libmount.x86_64 0:2.23.2-59.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libmount.x86_64 0:2.23.2-59.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package libsmartcols.x86_64 0:2.23.2-59.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libsmartcols.x86_64 0:2.23.2-59.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package libssh2.x86_64 0:1.4.3-12.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libssh2.x86_64 0:1.4.3-12.el7_6.2 will be an update
+aws_instance.base (remote-exec): ---> Package libstdc++.x86_64 0:4.8.5-36.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libstdc++.x86_64 0:4.8.5-36.el7_6.2 will be an update
+aws_instance.base (remote-exec): ---> Package libteam.x86_64 0:1.27-5.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libteam.x86_64 0:1.27-6.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package libuuid.x86_64 0:2.23.2-59.el7 will be updated
+aws_instance.base (remote-exec): ---> Package libuuid.x86_64 0:2.23.2-59.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package microcode_ctl.x86_64 2:2.1-47.el7 will be updated
+aws_instance.base (remote-exec): ---> Package microcode_ctl.x86_64 2:2.1-47.5.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package nss-pem.x86_64 0:1.0.3-5.el7 will be updated
+aws_instance.base (remote-exec): ---> Package nss-pem.x86_64 0:1.0.3-5.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package openssl.x86_64 1:1.0.2k-16.el7 will be updated
+aws_instance.base (remote-exec): ---> Package openssl.x86_64 1:1.0.2k-16.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package openssl-libs.x86_64 1:1.0.2k-16.el7 will be updated
+aws_instance.base (remote-exec): ---> Package openssl-libs.x86_64 1:1.0.2k-16.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package polkit.x86_64 0:0.112-18.el7 will be updated
+aws_instance.base (remote-exec): ---> Package polkit.x86_64 0:0.112-18.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package python.x86_64 0:2.7.5-76.el7 will be updated
+aws_instance.base (remote-exec): ---> Package python.x86_64 0:2.7.5-80.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package python-jinja2.noarch 0:2.7.2-2.el7 will be updated
+aws_instance.base (remote-exec): ---> Package python-jinja2.noarch 0:2.7.2-3.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package python-libs.x86_64 0:2.7.5-76.el7 will be updated
+aws_instance.base (remote-exec): ---> Package python-libs.x86_64 0:2.7.5-80.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package python-perf.x86_64 0:3.10.0-957.5.1.el7 will be updated
+aws_instance.base (remote-exec): ---> Package python-perf.x86_64 0:3.10.0-957.21.3.el7 will be an update
+aws_instance.base (remote-exec): ---> Package rh-amazon-rhui-client.noarch 0:2.2.141-1.el7 will be updated
+aws_instance.base (remote-exec): ---> Package rh-amazon-rhui-client.noarch 0:2.2.147-1.el7 will be an update
+aws_instance.base (remote-exec): ---> Package rsync.x86_64 0:3.1.2-4.el7 will be updated
+aws_instance.base (remote-exec): ---> Package rsync.x86_64 0:3.1.2-6.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package selinux-policy.noarch 0:3.13.1-229.el7_6.9 will be updated
+aws_instance.base (remote-exec): ---> Package selinux-policy.noarch 0:3.13.1-229.el7_6.12 will be an update
+aws_instance.base (remote-exec): ---> Package selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.9 will be updated
+aws_instance.base (remote-exec): ---> Package selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.12 will be an update
+aws_instance.base (remote-exec): ---> Package shadow-utils.x86_64 2:4.1.5.1-25.el7 will be updated
+aws_instance.base (remote-exec): ---> Package shadow-utils.x86_64 2:4.1.5.1-25.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package systemd.x86_64 0:219-62.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package systemd.x86_64 0:219-62.el7_6.7 will be an update
+aws_instance.base (remote-exec): ---> Package systemd-libs.x86_64 0:219-62.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package systemd-libs.x86_64 0:219-62.el7_6.7 will be an update
+aws_instance.base (remote-exec): ---> Package systemd-sysv.x86_64 0:219-62.el7_6.3 will be updated
+aws_instance.base (remote-exec): ---> Package systemd-sysv.x86_64 0:219-62.el7_6.7 will be an update
+aws_instance.base (remote-exec): ---> Package teamd.x86_64 0:1.27-5.el7 will be updated
+aws_instance.base (remote-exec): ---> Package teamd.x86_64 0:1.27-6.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package tuned.noarch 0:2.10.0-6.el7 will be updated
+aws_instance.base (remote-exec): ---> Package tuned.noarch 0:2.10.0-6.el7_6.3 will be an update
+aws_instance.base (remote-exec): ---> Package tzdata.noarch 0:2018i-1.el7 will be updated
+aws_instance.base (remote-exec): ---> Package tzdata.noarch 0:2019a-1.el7 will be an update
+aws_instance.base (remote-exec): ---> Package util-linux.x86_64 0:2.23.2-59.el7 will be updated
+aws_instance.base (remote-exec): ---> Package util-linux.x86_64 0:2.23.2-59.el7_6.1 will be an update
+aws_instance.base (remote-exec): ---> Package vim-minimal.x86_64 2:7.4.160-5.el7 will be updated
+aws_instance.base (remote-exec): ---> Package vim-minimal.x86_64 2:7.4.160-6.el7_6 will be an update
+aws_instance.base (remote-exec): ---> Package xfsprogs.x86_64 0:4.5.0-18.el7 will be updated
+aws_instance.base (remote-exec): ---> Package xfsprogs.x86_64 0:4.5.0-19.el7_6 will be an update
+aws_instance.base (remote-exec): --> Running transaction check
+aws_instance.base (remote-exec): ---> Package linux-firmware.noarch 0:20180911-69.git85c5d90.el7 will be installed
+aws_instance.base (remote-exec): --> Finished Dependency Resolution
+
+aws_instance.base (remote-exec): Dependencies Resolved
+
+aws_instance.base (remote-exec): ========================================
+aws_instance.base (remote-exec):  Package
+aws_instance.base (remote-exec):    Arch   Version               Repository
+aws_instance.base (remote-exec):                                    Size
+aws_instance.base (remote-exec): ========================================
+aws_instance.base (remote-exec): Installing:
+aws_instance.base (remote-exec):  kernel
+aws_instance.base (remote-exec):    x86_64 3.10.0-957.21.3.el7   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    48 M
+aws_instance.base (remote-exec): Updating:
+aws_instance.base (remote-exec):  NetworkManager
+aws_instance.base (remote-exec):    x86_64 1:1.12.0-10.el7_6     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   1.7 M
+aws_instance.base (remote-exec):  NetworkManager-config-server
+aws_instance.base (remote-exec):    noarch 1:1.12.0-10.el7_6     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   146 k
+aws_instance.base (remote-exec):  NetworkManager-libnm
+aws_instance.base (remote-exec):    x86_64 1:1.12.0-10.el7_6     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   1.4 M
+aws_instance.base (remote-exec):  NetworkManager-team
+aws_instance.base (remote-exec):    x86_64 1:1.12.0-10.el7_6     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   159 k
+aws_instance.base (remote-exec):  NetworkManager-tui
+aws_instance.base (remote-exec):    x86_64 1:1.12.0-10.el7_6     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   239 k
+aws_instance.base (remote-exec):  bind-libs-lite
+aws_instance.base (remote-exec):    x86_64 32:9.9.4-74.el7_6.1   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   741 k
+aws_instance.base (remote-exec):  bind-license
+aws_instance.base (remote-exec):    noarch 32:9.9.4-74.el7_6.1   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    87 k
+aws_instance.base (remote-exec):  cloud-init
+aws_instance.base (remote-exec):    x86_64 18.2-1.el7_6.2        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   779 k
+aws_instance.base (remote-exec):  dbus
+aws_instance.base (remote-exec):    x86_64 1:1.10.24-13.el7_6    rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   245 k
+aws_instance.base (remote-exec):  dbus-libs
+aws_instance.base (remote-exec):    x86_64 1:1.10.24-13.el7_6    rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   169 k
+aws_instance.base (remote-exec):  device-mapper
+aws_instance.base (remote-exec):    x86_64 7:1.02.149-10.el7_6.8 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   293 k
+aws_instance.base (remote-exec):  device-mapper-libs
+aws_instance.base (remote-exec):    x86_64 7:1.02.149-10.el7_6.8 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   321 k
+aws_instance.base (remote-exec):  glib2
+aws_instance.base (remote-exec):    x86_64 2.56.1-4.el7_6        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   2.5 M
+aws_instance.base (remote-exec):  glibc
+aws_instance.base (remote-exec):    x86_64 2.17-260.el7_6.6      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   3.6 M
+aws_instance.base (remote-exec):  glibc-common
+aws_instance.base (remote-exec):    x86_64 2.17-260.el7_6.6      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    11 M
+aws_instance.base (remote-exec):  iproute
+aws_instance.base (remote-exec):    x86_64 4.11.0-14.el7_6.2     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   764 k
+aws_instance.base (remote-exec):  kernel-tools
+aws_instance.base (remote-exec):    x86_64 3.10.0-957.21.3.el7   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   7.1 M
+aws_instance.base (remote-exec):  kernel-tools-libs
+aws_instance.base (remote-exec):    x86_64 3.10.0-957.21.3.el7   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   7.0 M
+aws_instance.base (remote-exec):  kexec-tools
+aws_instance.base (remote-exec):    x86_64 2.0.15-21.el7_6.3     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   343 k
+aws_instance.base (remote-exec):  libblkid
+aws_instance.base (remote-exec):    x86_64 2.23.2-59.el7_6.1     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   181 k
+aws_instance.base (remote-exec):  libgcc
+aws_instance.base (remote-exec):    x86_64 4.8.5-36.el7_6.2      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   102 k
+aws_instance.base (remote-exec):  libgomp
+aws_instance.base (remote-exec):    x86_64 4.8.5-36.el7_6.2      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   158 k
+aws_instance.base (remote-exec):  libgudev1
+aws_instance.base (remote-exec):    x86_64 219-62.el7_6.7        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    97 k
+aws_instance.base (remote-exec):  libmount
+aws_instance.base (remote-exec):    x86_64 2.23.2-59.el7_6.1     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   182 k
+aws_instance.base (remote-exec):  libsmartcols
+aws_instance.base (remote-exec):    x86_64 2.23.2-59.el7_6.1     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   140 k
+aws_instance.base (remote-exec):  libssh2
+aws_instance.base (remote-exec):    x86_64 1.4.3-12.el7_6.2      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   135 k
+aws_instance.base (remote-exec):  libstdc++
+aws_instance.base (remote-exec):    x86_64 4.8.5-36.el7_6.2      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   305 k
+aws_instance.base (remote-exec):  libteam
+aws_instance.base (remote-exec):    x86_64 1.27-6.el7_6.1        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    48 k
+aws_instance.base (remote-exec):  libuuid
+aws_instance.base (remote-exec):    x86_64 2.23.2-59.el7_6.1     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    83 k
+aws_instance.base (remote-exec):  microcode_ctl
+aws_instance.base (remote-exec):    x86_64 2:2.1-47.5.el7_6      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   2.0 M
+aws_instance.base (remote-exec):  nss-pem
+aws_instance.base (remote-exec):    x86_64 1.0.3-5.el7_6.1       rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    74 k
+aws_instance.base (remote-exec):  openssl
+aws_instance.base (remote-exec):    x86_64 1:1.0.2k-16.el7_6.1   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   493 k
+aws_instance.base (remote-exec):  openssl-libs
+aws_instance.base (remote-exec):    x86_64 1:1.0.2k-16.el7_6.1   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   1.2 M
+aws_instance.base (remote-exec):  polkit
+aws_instance.base (remote-exec):    x86_64 0.112-18.el7_6.1      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   168 k
+aws_instance.base (remote-exec):  python
+aws_instance.base (remote-exec):    x86_64 2.7.5-80.el7_6        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    95 k
+aws_instance.base (remote-exec):  python-jinja2
+aws_instance.base (remote-exec):    noarch 2.7.2-3.el7_6         rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   518 k
+aws_instance.base (remote-exec):  python-libs
+aws_instance.base (remote-exec):    x86_64 2.7.5-80.el7_6        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   5.6 M
+aws_instance.base (remote-exec):  python-perf
+aws_instance.base (remote-exec):    x86_64 3.10.0-957.21.3.el7   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   7.1 M
+aws_instance.base (remote-exec):  rh-amazon-rhui-client
+aws_instance.base (remote-exec):    noarch 2.2.147-1.el7         rhui-REGION-client-config-server-7
+aws_instance.base (remote-exec):                                    55 k
+aws_instance.base (remote-exec):  rsync
+aws_instance.base (remote-exec):    x86_64 3.1.2-6.el7_6.1       rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   404 k
+aws_instance.base (remote-exec):  selinux-policy
+aws_instance.base (remote-exec):    noarch 3.13.1-229.el7_6.12   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   484 k
+aws_instance.base (remote-exec):  selinux-policy-targeted
+aws_instance.base (remote-exec):    noarch 3.13.1-229.el7_6.12   rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   6.9 M
+aws_instance.base (remote-exec):  shadow-utils
+aws_instance.base (remote-exec):    x86_64 2:4.1.5.1-25.el7_6.1  rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   1.1 M
+aws_instance.base (remote-exec):  systemd
+aws_instance.base (remote-exec):    x86_64 219-62.el7_6.7        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   5.1 M
+aws_instance.base (remote-exec):  systemd-libs
+aws_instance.base (remote-exec):    x86_64 219-62.el7_6.7        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   407 k
+aws_instance.base (remote-exec):  systemd-sysv
+aws_instance.base (remote-exec):    x86_64 219-62.el7_6.7        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    84 k
+aws_instance.base (remote-exec):  teamd
+aws_instance.base (remote-exec):    x86_64 1.27-6.el7_6.1        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   113 k
+aws_instance.base (remote-exec):  tuned
+aws_instance.base (remote-exec):    noarch 2.10.0-6.el7_6.3      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   254 k
+aws_instance.base (remote-exec):  tzdata
+aws_instance.base (remote-exec):    noarch 2019a-1.el7           rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   494 k
+aws_instance.base (remote-exec):  util-linux
+aws_instance.base (remote-exec):    x86_64 2.23.2-59.el7_6.1     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   2.0 M
+aws_instance.base (remote-exec):  vim-minimal
+aws_instance.base (remote-exec):    x86_64 2:7.4.160-6.el7_6     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   437 k
+aws_instance.base (remote-exec):  xfsprogs
+aws_instance.base (remote-exec):    x86_64 4.5.0-19.el7_6        rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   897 k
+aws_instance.base (remote-exec): Installing for dependencies:
+aws_instance.base (remote-exec):  linux-firmware
+aws_instance.base (remote-exec):    noarch 20180911-69.git85c5d90.el7
+aws_instance.base (remote-exec):                                 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    49 M
+
+aws_instance.base (remote-exec): Transaction Summary
+aws_instance.base (remote-exec): ========================================
+aws_instance.base (remote-exec): Install   1 Package  (+1 Dependent package)
+aws_instance.base (remote-exec): Upgrade  52 Packages
+
+aws_instance.base (remote-exec): Total download size: 173 M
+aws_instance.base (remote-exec): Downloading packages:
+aws_instance.base (remote-exec): Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+aws_instance.base (remote-exec): (2/54): Network 0% |    0 B   --:-- ETA
+aws_instance.base (remote-exec): (1/54): NetworkMan | 146 kB   00:00
+aws_instance.base (remote-exec): (2/54): NetworkMan | 1.7 MB   00:00
+aws_instance.base (remote-exec): (3/54): NetworkMan | 159 kB   00:00
+aws_instance.base (remote-exec): (4/54): NetworkMan | 1.4 MB   00:00
+aws_instance.base (remote-exec): (5/54): NetworkMan | 239 kB   00:00
+aws_instance.base (remote-exec): (6/54): bind-libs- | 741 kB   00:00
+aws_instance.base (remote-exec): (7/54): bind-licen |  87 kB   00:00
+aws_instance.base (remote-exec): (8/54): cloud-init | 779 kB   00:00
+aws_instance.base (remote-exec): (9/54): dbus-1.10. | 245 kB   00:00
+aws_instance.base (remote-exec): (10/54): dbus-libs | 169 kB   00:00
+aws_instance.base (remote-exec): (11/54): device-ma | 293 kB   00:00
+aws_instance.base (remote-exec): (12/54): device-ma | 321 kB   00:00
+aws_instance.base (remote-exec): (13/54): glib2-2.5 | 2.5 MB   00:00
+aws_instance.base (remote-exec): (14/54): glibc-2.1 | 3.6 MB   00:00
+aws_instance.base (remote-exec): (15/54): iproute-4 | 764 kB   00:00
+aws_instance.base (remote-exec): (16/54): glibc 10% |  17 MB   --:-- ETA
+aws_instance.base (remote-exec): (16/54): glibc-com |  11 MB   00:00
+aws_instance.base (remote-exec): (17/54): kerne 18% |  32 MB   00:18 ETA
+aws_instance.base (remote-exec): (17/54): kernel-to | 7.1 MB   00:00
+aws_instance.base (remote-exec): (18/54): kerne 34% |  60 MB   00:08 ETA
+aws_instance.base (remote-exec): (18/54): kernel-3. |  48 MB   00:01
+aws_instance.base (remote-exec): (19/54): kernel-to | 7.0 MB   00:00
+aws_instance.base (remote-exec): (20/54): libblkid- | 181 kB   00:00
+aws_instance.base (remote-exec): (21/54): libgcc-4. | 102 kB   00:00
+aws_instance.base (remote-exec): (22/54): libgomp-4 | 158 kB   00:00
+aws_instance.base (remote-exec): (23/54): libgudev1 |  97 kB   00:00
+aws_instance.base (remote-exec): (24/54): libmount- | 182 kB   00:00
+aws_instance.base (remote-exec): (25/54): libsmartc | 140 kB   00:00
+aws_instance.base (remote-exec): (26/54): libssh2-1 | 135 kB   00:00
+aws_instance.base (remote-exec): (27/54): libstdc++ | 305 kB   00:00
+aws_instance.base (remote-exec): (28/54): libteam-1 |  48 kB   00:00
+aws_instance.base (remote-exec): (30/54): libuu 50% |  88 MB   00:05 ETA
+aws_instance.base (remote-exec): (29/54): libuuid-2 |  83 kB   00:00
+aws_instance.base (remote-exec): (30/54): kexec-too | 343 kB   00:01
+aws_instance.base (remote-exec): (31/54): microcode | 2.0 MB   00:00
+aws_instance.base (remote-exec): (32/54): nss-pem-1 |  74 kB   00:00
+aws_instance.base (remote-exec): (34/54): opens 58% | 101 MB   00:04 ETA
+aws_instance.base (remote-exec): (33/54): openssl-1 | 493 kB   00:00
+aws_instance.base (remote-exec): (34/54): openssl-l | 1.2 MB   00:00
+aws_instance.base (remote-exec): (36/54): polki 71% | 124 MB   00:02 ETA
+aws_instance.base (remote-exec): (35/54): python-2. |  95 kB   00:00
+aws_instance.base (remote-exec): (36/54): polkit-0. | 168 kB   00:00
+aws_instance.base (remote-exec): (37/54): python-ji | 518 kB   00:00
+aws_instance.base (remote-exec): (40/54): pytho 81% | 142 MB   00:01 ETA
+aws_instance.base (remote-exec): (38/54): linux-fir |  49 MB   00:01
+aws_instance.base (remote-exec): (39/54): python-li | 5.6 MB   00:00
+aws_instance.base (remote-exec): (40/54): python-pe | 7.1 MB   00:00
+aws_instance.base (remote-exec): (43/54): selin 89% | 155 MB   00:00 ETA
+aws_instance.base (remote-exec): (41/54): rh-amazon |  55 kB   00:00
+aws_instance.base (remote-exec): (42/54): rsync-3.1 | 404 kB   00:00
+aws_instance.base (remote-exec): (43/54): selinux-p | 484 kB   00:00
+aws_instance.base (remote-exec): (44/54): shadow-ut | 1.1 MB   00:00
+aws_instance.base (remote-exec): (45/54): selinux-p | 6.9 MB   00:00
+aws_instance.base (remote-exec): (46/54): systemd-l | 407 kB   00:00
+aws_instance.base (remote-exec): (47/54): systemd-2 | 5.1 MB   00:00
+aws_instance.base (remote-exec): (48/54): teamd-1.2 | 113 kB   00:00
+aws_instance.base (remote-exec): (49/54): systemd-s |  84 kB   00:00
+aws_instance.base (remote-exec): (50/54): tuned-2.1 | 254 kB   00:00
+aws_instance.base (remote-exec): (51/54): tzdata-20 | 494 kB   00:00
+aws_instance.base (remote-exec): (52/54): vim-minim | 437 kB   00:00
+aws_instance.base (remote-exec): (53/54): util-linu | 2.0 MB   00:00
+aws_instance.base (remote-exec): (54/54): xfsprogs- | 897 kB   00:00
+aws_instance.base (remote-exec): ----------------------------------------
+aws_instance.base (remote-exec): Total       29 MB/s | 173 MB  00:06
+aws_instance.base: Still creating... [2m0s elapsed]
+aws_instance.base (remote-exec): Running transaction check
+aws_instance.base (remote-exec): Running transaction test
+aws_instance.base (remote-exec): Transaction test succeeded
+aws_instance.base (remote-exec): Running transaction
+aws_instance.base (remote-exec):   Updating   : libgcc [       ]   1/106
+aws_instance.base (remote-exec):   Updating   : libgcc [##     ]   1/106
+aws_instance.base (remote-exec):   Updating   : libgcc [###    ]   1/106
+aws_instance.base (remote-exec):   Updating   : libgcc [####   ]   1/106
+aws_instance.base (remote-exec):   Updating   : libgcc [#####  ]   1/106
+aws_instance.base (remote-exec):   Updating   : libgcc [###### ]   1/106
+aws_instance.base (remote-exec):   Updating   : libgcc-4.8.5-3     1/106
+aws_instance.base (remote-exec):   Installing : linux- [       ]   2/106
+aws_instance.base: Still creating... [2m10s elapsed]
+aws_instance.base (remote-exec):   Installing : linux- [#      ]   2/106
+aws_instance.base (remote-exec):   Installing : linux- [##     ]   2/106
+aws_instance.base (remote-exec):   Installing : linux- [###    ]   2/106
+aws_instance.base (remote-exec):   Installing : linux- [####   ]   2/106
+aws_instance.base (remote-exec):   Installing : linux- [#####  ]   2/106
+aws_instance.base (remote-exec):   Installing : linux- [###### ]   2/106
+aws_instance.base (remote-exec):   Installing : linux-firmware     2/106
+aws_instance.base (remote-exec):   Updating   : selinu [       ]   3/106
+aws_instance.base (remote-exec):   Updating   : selinu [###### ]   3/106
+aws_instance.base (remote-exec):   Updating   : selinux-policy     3/106
+aws_instance.base: Still creating... [2m20s elapsed]
+aws_instance.base: Still creating... [2m30s elapsed]
+aws_instance.base (remote-exec):   Updating   : tzdata [       ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata [#      ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata [##     ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata [###    ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata [####   ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata [#####  ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata [###### ]   4/106
+aws_instance.base (remote-exec):   Updating   : tzdata-2019a-1     4/106
+aws_instance.base (remote-exec):   Updating   : glibc- [       ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [#      ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [##     ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [###    ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [####   ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [#####  ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [###### ]   5/106
+aws_instance.base (remote-exec):   Updating   : glibc-common-2     5/106
+aws_instance.base (remote-exec):   Updating   : glibc- [       ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc- [#      ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc- [##     ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc- [###    ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc- [####   ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc- [#####  ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc- [###### ]   6/106
+aws_instance.base (remote-exec):   Updating   : glibc-2.17-260     6/106
+aws_instance.base (remote-exec):   Updating   : system [       ]   7/106
+aws_instance.base (remote-exec):   Updating   : system [#      ]   7/106
+aws_instance.base (remote-exec):   Updating   : system [##     ]   7/106
+aws_instance.base (remote-exec):   Updating   : system [###    ]   7/106
+aws_instance.base (remote-exec):   Updating   : system [####   ]   7/106
+aws_instance.base (remote-exec):   Updating   : system [#####  ]   7/106
+aws_instance.base (remote-exec):   Updating   : system [###### ]   7/106
+aws_instance.base (remote-exec):   Updating   : systemd-libs-2     7/106
+aws_instance.base (remote-exec):   Updating   : libuui [       ]   8/106
+aws_instance.base (remote-exec):   Updating   : libuui [###### ]   8/106
+aws_instance.base (remote-exec):   Updating   : libuuid-2.23.2     8/106
+aws_instance.base (remote-exec):   Updating   : libblk [       ]   9/106
+aws_instance.base (remote-exec):   Updating   : libblk [#      ]   9/106
+aws_instance.base (remote-exec):   Updating   : libblk [###    ]   9/106
+aws_instance.base (remote-exec):   Updating   : libblk [#####  ]   9/106
+aws_instance.base (remote-exec):   Updating   : libblk [###### ]   9/106
+aws_instance.base (remote-exec):   Updating   : libblkid-2.23.     9/106
+aws_instance.base (remote-exec):   Updating   : 1:open [       ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:open [#      ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:open [##     ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:open [###    ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:open [####   ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:open [#####  ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:open [###### ]  10/106
+aws_instance.base (remote-exec):   Updating   : 1:openssl-libs    10/106
+aws_instance.base: Still creating... [2m40s elapsed]
+aws_instance.base (remote-exec):   Updating   : 2:shad [       ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shad [#      ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shad [##     ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shad [###    ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shad [####   ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shad [#####  ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shad [###### ]  11/106
+aws_instance.base (remote-exec):   Updating   : 2:shadow-utils    11/106
+aws_instance.base (remote-exec):   Updating   : libmou [       ]  12/106
+aws_instance.base (remote-exec):   Updating   : libmou [#      ]  12/106
+aws_instance.base (remote-exec):   Updating   : libmou [###    ]  12/106
+aws_instance.base (remote-exec):   Updating   : libmou [####   ]  12/106
+aws_instance.base (remote-exec):   Updating   : libmou [###### ]  12/106
+aws_instance.base (remote-exec):   Updating   : libmount-2.23.    12/106
+aws_instance.base (remote-exec):   Updating   : glib2- [       ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2- [#      ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2- [##     ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2- [###    ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2- [####   ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2- [#####  ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2- [###### ]  13/106
+aws_instance.base (remote-exec):   Updating   : glib2-2.56.1-4    13/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [       ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#      ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [##     ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###    ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [####   ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#####  ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###### ]  14/106
+aws_instance.base (remote-exec):   Updating   : 1:NetworkManag    14/106
+aws_instance.base (remote-exec):   Updating   : python [       ]  15/106
+aws_instance.base (remote-exec):   Updating   : python [#      ]  15/106
+aws_instance.base (remote-exec):   Updating   : python [##     ]  15/106
+aws_instance.base (remote-exec):   Updating   : python [###    ]  15/106
+aws_instance.base (remote-exec):   Updating   : python [####   ]  15/106
+aws_instance.base (remote-exec):   Updating   : python [#####  ]  15/106
+aws_instance.base (remote-exec):   Updating   : python [###### ]  15/106
+aws_instance.base (remote-exec):   Updating   : python-libs-2.    15/106
+aws_instance.base (remote-exec):   Updating   : python [       ]  16/106
+aws_instance.base (remote-exec):   Updating   : python [#      ]  16/106
+aws_instance.base (remote-exec):   Updating   : python [###### ]  16/106
+aws_instance.base (remote-exec):   Updating   : python-2.7.5-8    16/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [       ]  17/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [#      ]  17/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [##     ]  17/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [###    ]  17/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [#####  ]  17/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [###### ]  17/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus-libs-1.    17/106
+aws_instance.base (remote-exec):   Updating   : system [       ]  18/106
+aws_instance.base (remote-exec):   Updating   : system [#      ]  18/106
+aws_instance.base (remote-exec):   Updating   : system [##     ]  18/106
+aws_instance.base (remote-exec):   Updating   : system [###    ]  18/106
+aws_instance.base (remote-exec):   Updating   : system [####   ]  18/106
+aws_instance.base (remote-exec):   Updating   : system [#####  ]  18/106
+aws_instance.base (remote-exec):   Updating   : system [###### ]  18/106
+aws_instance.base (remote-exec):   Updating   : systemd-219-62    18/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [       ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [#      ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [##     ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [###    ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [####   ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [#####  ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus [###### ]  19/106
+aws_instance.base (remote-exec):   Updating   : 1:dbus-1.10.24    19/106
+aws_instance.base (remote-exec):   Updating   : polkit [       ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit [#      ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit [##     ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit [###    ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit [####   ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit [#####  ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit [###### ]  20/106
+aws_instance.base (remote-exec):   Updating   : polkit-0.112-1    20/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [       ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#      ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [##     ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###    ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [####   ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#####  ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###### ]  21/106
+aws_instance.base (remote-exec):   Updating   : 1:NetworkManag    21/106
+aws_instance.base (remote-exec):   Updating   : python [       ]  22/106
+aws_instance.base (remote-exec):   Updating   : python [#      ]  22/106
+aws_instance.base (remote-exec):   Updating   : python [##     ]  22/106
+aws_instance.base (remote-exec):   Updating   : python [###    ]  22/106
+aws_instance.base (remote-exec):   Updating   : python [####   ]  22/106
+aws_instance.base (remote-exec):   Updating   : python [#####  ]  22/106
+aws_instance.base (remote-exec):   Updating   : python [###### ]  22/106
+aws_instance.base (remote-exec):   Updating   : python-jinja2-    22/106
+aws_instance.base (remote-exec):   Updating   : python [       ]  23/106
+aws_instance.base (remote-exec):   Updating   : python [#      ]  23/106
+aws_instance.base (remote-exec):   Updating   : python [##     ]  23/106
+aws_instance.base (remote-exec):   Updating   : python [####   ]  23/106
+aws_instance.base (remote-exec):   Updating   : python [#####  ]  23/106
+aws_instance.base (remote-exec):   Updating   : python [###### ]  23/106
+aws_instance.base (remote-exec):   Updating   : python-perf-3.    23/106
+aws_instance.base (remote-exec):   Updating   : kernel [       ]  24/106
+aws_instance.base (remote-exec):   Updating   : kernel [###### ]  24/106
+aws_instance.base (remote-exec):   Updating   : kernel-tools-l    24/106
+aws_instance.base (remote-exec):   Updating   : iprout [       ]  25/106
+aws_instance.base (remote-exec):   Updating   : iprout [#      ]  25/106
+aws_instance.base (remote-exec):   Updating   : iprout [##     ]  25/106
+aws_instance.base (remote-exec):   Updating   : iprout [###    ]  25/106
+aws_instance.base (remote-exec):   Updating   : iprout [####   ]  25/106
+aws_instance.base (remote-exec):   Updating   : iprout [#####  ]  25/106
+aws_instance.base (remote-exec):   Updating   : iprout [###### ]  25/106
+aws_instance.base (remote-exec):   Updating   : iproute-4.11.0    25/106
+aws_instance.base (remote-exec):   Updating   : libtea [       ]  26/106
+aws_instance.base (remote-exec):   Updating   : libtea [#      ]  26/106
+aws_instance.base (remote-exec):   Updating   : libtea [#####  ]  26/106
+aws_instance.base (remote-exec):   Updating   : libtea [###### ]  26/106
+aws_instance.base (remote-exec):   Updating   : libteam-1.27-6    26/106
+aws_instance.base (remote-exec):   Updating   : teamd- [       ]  27/106
+aws_instance.base (remote-exec):   Updating   : teamd- [##     ]  27/106
+aws_instance.base (remote-exec):   Updating   : teamd- [###    ]  27/106
+aws_instance.base (remote-exec):   Updating   : teamd- [####   ]  27/106
+aws_instance.base (remote-exec):   Updating   : teamd- [#####  ]  27/106
+aws_instance.base (remote-exec):   Updating   : teamd- [###### ]  27/106
+aws_instance.base (remote-exec):   Updating   : teamd-1.27-6.e    27/106
+aws_instance.base (remote-exec):   Updating   : libsma [       ]  28/106
+aws_instance.base (remote-exec):   Updating   : libsma [##     ]  28/106
+aws_instance.base (remote-exec):   Updating   : libsma [#####  ]  28/106
+aws_instance.base (remote-exec):   Updating   : libsma [###### ]  28/106
+aws_instance.base (remote-exec):   Updating   : libsmartcols-2    28/106
+aws_instance.base (remote-exec):   Updating   : util-l [       ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-l [#      ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-l [##     ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-l [###    ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-l [####   ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-l [#####  ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-l [###### ]  29/106
+aws_instance.base (remote-exec):   Updating   : util-linux-2.2    29/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [       ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [#      ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [##     ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [###    ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [####   ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [#####  ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [###### ]  30/106
+aws_instance.base (remote-exec):   Updating   : 7:device-mappe    30/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [       ]  31/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [##     ]  31/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [###    ]  31/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [####   ]  31/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [#####  ]  31/106
+aws_instance.base (remote-exec):   Updating   : 7:devi [###### ]  31/106
+aws_instance.base (remote-exec):   Updating   : 7:device-mappe    31/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [       ]  32/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [###### ]  32/106
+aws_instance.base (remote-exec):   Updating   : 32:bind-licens    32/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [       ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [#      ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [##     ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [###    ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [####   ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [#####  ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bin [###### ]  33/106
+aws_instance.base (remote-exec):   Updating   : 32:bind-libs-l    33/106
+aws_instance.base (remote-exec):   Updating   : tuned- [       ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned- [#      ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned- [##     ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned- [###    ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned- [####   ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned- [#####  ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned- [###### ]  34/106
+aws_instance.base (remote-exec):   Updating   : tuned-2.10.0-6    34/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [       ]  35/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###### ]  35/106
+aws_instance.base (remote-exec):   Updating   : 1:NetworkManag    35/106
+aws_instance.base (remote-exec):   Updating   : cloud- [       ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud- [#      ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud- [##     ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud- [###    ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud- [####   ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud- [#####  ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud- [###### ]  36/106
+aws_instance.base (remote-exec):   Updating   : cloud-init-18.    36/106
+aws_instance.base (remote-exec):   Updating   : kernel [       ]  37/106
+aws_instance.base (remote-exec):   Updating   : kernel [#      ]  37/106
+aws_instance.base (remote-exec):   Updating   : kernel [##     ]  37/106
+aws_instance.base (remote-exec):   Updating   : kernel [####   ]  37/106
+aws_instance.base (remote-exec):   Updating   : kernel [#####  ]  37/106
+aws_instance.base (remote-exec):   Updating   : kernel [###### ]  37/106
+aws_instance.base (remote-exec):   Updating   : kernel-tools-3    37/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [       ]  38/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#      ]  38/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###    ]  38/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#####  ]  38/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###### ]  38/106
+aws_instance.base (remote-exec):   Updating   : 1:NetworkManag    38/106
+aws_instance.base (remote-exec):   Updating   : kexec- [       ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec- [#      ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec- [##     ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec- [###    ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec- [####   ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec- [#####  ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec- [###### ]  39/106
+aws_instance.base (remote-exec):   Updating   : kexec-tools-2.    39/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [       ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [#      ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [##     ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [###    ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [####   ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [#####  ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:micr [###### ]  40/106
+aws_instance.base (remote-exec):   Updating   : 2:microcode_ct    40/106
+aws_instance.base: Still creating... [2m50s elapsed]
+aws_instance.base (remote-exec):   Updating   : system [       ]  41/106
+aws_instance.base (remote-exec):   Updating   : system [###### ]  41/106
+aws_instance.base (remote-exec):   Updating   : systemd-sysv-2    41/106
+aws_instance.base (remote-exec):   Updating   : rsync- [       ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync- [#      ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync- [##     ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync- [###    ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync- [####   ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync- [#####  ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync- [###### ]  42/106
+aws_instance.base (remote-exec):   Updating   : rsync-3.1.2-6.    42/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [       ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [#      ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [##     ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [###    ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [####   ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [#####  ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-ama [###### ]  43/106
+aws_instance.base (remote-exec):   Updating   : rh-amazon-rhui    43/106
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:39 2019-07-08 15:11:37,382: Zone [us-east-1a]
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:67 2019-07-08 15:11:37,382: Enabling binary repos in redhat-rhui.repo
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:86 2019-07-08 15:11:37,383: Enabling load balancer plugin
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:88 2019-07-08 15:11:37,383: Executing [sed -i 's/enabled=0/enabled=1/' /etc/yum/pluginconf.d/rhui-lb.conf]
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:92 2019-07-08 15:11:37,388: Setting region in load balancer config
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:94 2019-07-08 15:11:37,388: Executing [sed -i 's/REGION/us-east-1/' /etc/yum.repos.d/rhui-load-balancers.conf]
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:98 2019-07-08 15:11:37,390: Enabling client config repo
+aws_instance.base (remote-exec): [INFO:choose_repo] choose_repo:101 2019-07-08 15:11:37,390: Executing [sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/redhat-rhui-client-config.repo]
+aws_instance.base (remote-exec):   Updating   : libgud [       ]  44/106
+aws_instance.base (remote-exec):   Updating   : libgud [#      ]  44/106
+aws_instance.base (remote-exec):   Updating   : libgud [###### ]  44/106
+aws_instance.base (remote-exec):   Updating   : libgudev1-219-    44/106
+aws_instance.base (remote-exec):   Updating   : 1:open [       ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:open [#      ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:open [##     ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:open [###    ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:open [####   ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:open [#####  ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:open [###### ]  45/106
+aws_instance.base (remote-exec):   Updating   : 1:openssl-1.0.    45/106
+aws_instance.base (remote-exec):   Updating   : libssh [       ]  46/106
+aws_instance.base (remote-exec):   Updating   : libssh [#      ]  46/106
+aws_instance.base (remote-exec):   Updating   : libssh [##     ]  46/106
+aws_instance.base (remote-exec):   Updating   : libssh [###    ]  46/106
+aws_instance.base (remote-exec):   Updating   : libssh [####   ]  46/106
+aws_instance.base (remote-exec):   Updating   : libssh [###### ]  46/106
+aws_instance.base (remote-exec):   Updating   : libssh2-1.4.3-    46/106
+aws_instance.base (remote-exec):   Updating   : xfspro [       ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfspro [#      ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfspro [##     ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfspro [###    ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfspro [####   ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfspro [#####  ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfspro [###### ]  47/106
+aws_instance.base (remote-exec):   Updating   : xfsprogs-4.5.0    47/106
+aws_instance.base (remote-exec):   Updating   : nss-pe [       ]  48/106
+aws_instance.base (remote-exec):   Updating   : nss-pe [##     ]  48/106
+aws_instance.base (remote-exec):   Updating   : nss-pe [####   ]  48/106
+aws_instance.base (remote-exec):   Updating   : nss-pe [###### ]  48/106
+aws_instance.base (remote-exec):   Updating   : nss-pem-1.0.3-    48/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [       ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [#      ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [##     ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [###    ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [####   ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [#####  ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim- [###### ]  49/106
+aws_instance.base (remote-exec):   Updating   : 2:vim-minimal-    49/106
+aws_instance.base (remote-exec):   Updating   : libstd [       ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstd [#      ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstd [##     ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstd [###    ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstd [####   ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstd [#####  ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstd [###### ]  50/106
+aws_instance.base (remote-exec):   Updating   : libstdc++-4.8.    50/106
+aws_instance.base (remote-exec):   Updating   : libgom [       ]  51/106
+aws_instance.base (remote-exec):   Updating   : libgom [##     ]  51/106
+aws_instance.base (remote-exec):   Updating   : libgom [####   ]  51/106
+aws_instance.base (remote-exec):   Updating   : libgom [#####  ]  51/106
+aws_instance.base (remote-exec):   Updating   : libgom [###### ]  51/106
+aws_instance.base (remote-exec):   Updating   : libgomp-4.8.5-    51/106
+aws_instance.base (remote-exec):   Updating   : selinu [       ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinu [#      ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinu [##     ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinu [###    ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinu [####   ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinu [#####  ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinu [###### ]  52/106
+aws_instance.base (remote-exec):   Updating   : selinux-policy    52/106
+aws_instance.base: Still creating... [3m0s elapsed]
+aws_instance.base (remote-exec):   Installing : kernel [       ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel [#      ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel [##     ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel [###    ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel [####   ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel [#####  ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel [###### ]  53/106
+aws_instance.base (remote-exec):   Installing : kernel-3.10.0-    53/106
+aws_instance.base: Still creating... [3m10s elapsed]
+aws_instance.base (remote-exec):   Updating   : 1:Netw [       ]  54/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [#      ]  54/106
+aws_instance.base (remote-exec):   Updating   : 1:Netw [###### ]  54/106
+aws_instance.base (remote-exec):   Updating   : 1:NetworkManag    54/106
+aws_instance.base (remote-exec):   Cleanup    : tuned-2.10.0-6    55/106
+aws_instance.base (remote-exec):   Cleanup    : 1:NetworkManag    56/106
+aws_instance.base (remote-exec):   Cleanup    : cloud-init-18.    57/106
+aws_instance.base (remote-exec):   Cleanup    : libgudev1-219-    58/106
+aws_instance.base (remote-exec):   Cleanup    : 1:NetworkManag    59/106
+aws_instance.base (remote-exec):   Cleanup    : 1:NetworkManag    60/106
+aws_instance.base (remote-exec):   Cleanup    : polkit-0.112-1    61/106
+aws_instance.base (remote-exec):   Cleanup    : 1:NetworkManag    62/106
+aws_instance.base (remote-exec):   Cleanup    : 7:device-mappe    63/106
+aws_instance.base (remote-exec):   Cleanup    : 7:device-mappe    64/106
+aws_instance.base (remote-exec):   Cleanup    : util-linux-2.2    65/106
+aws_instance.base (remote-exec):   Cleanup    : xfsprogs-4.5.0    66/106
+aws_instance.base (remote-exec):   Cleanup    : 1:openssl-1.0.    67/106
+aws_instance.base (remote-exec):   Cleanup    : 32:bind-libs-l    68/106
+aws_instance.base (remote-exec):   Cleanup    : glib2-2.56.1-2    69/106
+aws_instance.base (remote-exec):   Cleanup    : teamd-1.27-5.e    70/106
+aws_instance.base (remote-exec):   Cleanup    : python-perf-3.    71/106
+aws_instance.base (remote-exec):   Cleanup    : kernel-tools-3    72/106
+aws_instance.base (remote-exec):   Cleanup    : libssh2-1.4.3-    73/106
+aws_instance.base (remote-exec):   Cleanup    : libstdc++-4.8.    74/106
+aws_instance.base (remote-exec):   Cleanup    : systemd-sysv-2    75/106
+aws_instance.base (remote-exec):   Cleanup    : rsync-3.1.2-4.    76/106
+aws_instance.base (remote-exec):   Cleanup    : 2:microcode_ct    77/106
+aws_instance.base (remote-exec):   Cleanup    : kexec-tools-2.    78/106
+aws_instance.base (remote-exec):   Cleanup    : python-jinja2-    79/106
+aws_instance.base (remote-exec):   Cleanup    : selinux-policy    80/106
+aws_instance.base (remote-exec):   Cleanup    : rh-amazon-rhui    81/106
+aws_instance.base (remote-exec):   Cleanup    : 1:dbus-1.10.24    82/106
+aws_instance.base (remote-exec):   Cleanup    : systemd-219-62    83/106
+aws_instance.base (remote-exec):   Cleanup    : libmount-2.23.    84/106
+aws_instance.base (remote-exec):   Cleanup    : python-2.7.5-7    85/106
+aws_instance.base (remote-exec):   Cleanup    : python-libs-2.    86/106
+aws_instance.base (remote-exec):   Cleanup    : libblkid-2.23.    87/106
+aws_instance.base (remote-exec):   Cleanup    : 1:dbus-libs-1.    88/106
+aws_instance.base (remote-exec):   Cleanup    : systemd-libs-2    89/106
+aws_instance.base (remote-exec):   Cleanup    : libuuid-2.23.2    90/106
+aws_instance.base (remote-exec):   Cleanup    : 1:openssl-libs    91/106
+aws_instance.base (remote-exec):   Cleanup    : 2:shadow-utils    92/106
+aws_instance.base (remote-exec):   Cleanup    : kernel-tools-l    93/106
+aws_instance.base (remote-exec):   Cleanup    : libteam-1.27-5    94/106
+aws_instance.base (remote-exec):   Cleanup    : libsmartcols-2    95/106
+aws_instance.base (remote-exec):   Cleanup    : iproute-4.11.0    96/106
+aws_instance.base (remote-exec):   Cleanup    : libgomp-4.8.5-    97/106
+aws_instance.base (remote-exec):   Cleanup    : 2:vim-minimal-    98/106
+aws_instance.base (remote-exec):   Cleanup    : nss-pem-1.0.3-    99/106
+aws_instance.base (remote-exec):   Cleanup    : selinux-policy   100/106
+aws_instance.base (remote-exec):   Cleanup    : 32:bind-licens   101/106
+aws_instance.base (remote-exec):   Cleanup    : 1:NetworkManag   102/106
+aws_instance.base (remote-exec):   Cleanup    : glibc-common-2   103/106
+aws_instance.base (remote-exec):   Cleanup    : glibc-2.17-260   104/106
+aws_instance.base (remote-exec):   Cleanup    : tzdata-2018i-1   105/106
+aws_instance.base (remote-exec):   Cleanup    : libgcc-4.8.5-3   106/106
+aws_instance.base: Still creating... [3m20s elapsed]
+aws_instance.base: Still creating... [3m30s elapsed]
+aws_instance.base: Still creating... [3m40s elapsed]
+aws_instance.base: Still creating... [3m50s elapsed]
+aws_instance.base: Still creating... [4m0s elapsed]
+aws_instance.base: Still creating... [4m10s elapsed]
+aws_instance.base: Still creating... [4m20s elapsed]
+aws_instance.base: Still creating... [4m30s elapsed]
+aws_instance.base: Still creating... [4m40s elapsed]
+aws_instance.base: Still creating... [4m50s elapsed]
+aws_instance.base: Still creating... [5m0s elapsed]
+aws_instance.base: Still creating... [5m10s elapsed]
+aws_instance.base (remote-exec):   Verifying  : glib2-2.56.1-4     1/106
+aws_instance.base (remote-exec):   Verifying  : kexec-tools-2.     2/106
+aws_instance.base (remote-exec):   Verifying  : nss-pem-1.0.3-     3/106
+aws_instance.base (remote-exec):   Verifying  : kernel-tools-l     4/106
+aws_instance.base (remote-exec):   Verifying  : iproute-4.11.0     5/106
+aws_instance.base (remote-exec):   Verifying  : libblkid-2.23.     6/106
+aws_instance.base (remote-exec):   Verifying  : glibc-2.17-260     7/106
+aws_instance.base (remote-exec):   Verifying  : 7:device-mappe     8/106
+aws_instance.base (remote-exec):   Verifying  : 32:bind-licens     9/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    10/106
+aws_instance.base (remote-exec):   Verifying  : tuned-2.10.0-6    11/106
+aws_instance.base (remote-exec):   Verifying  : systemd-libs-2    12/106
+aws_instance.base (remote-exec):   Verifying  : python-jinja2-    13/106
+aws_instance.base (remote-exec):   Verifying  : python-perf-3.    14/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    15/106
+aws_instance.base (remote-exec):   Verifying  : 1:openssl-libs    16/106
+aws_instance.base (remote-exec):   Verifying  : cloud-init-18.    17/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    18/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    19/106
+aws_instance.base (remote-exec):   Verifying  : 2:vim-minimal-    20/106
+aws_instance.base (remote-exec):   Verifying  : 32:bind-libs-l    21/106
+aws_instance.base (remote-exec):   Verifying  : 2:microcode_ct    22/106
+aws_instance.base (remote-exec):   Verifying  : libmount-2.23.    23/106
+aws_instance.base (remote-exec):   Verifying  : libstdc++-4.8.    24/106
+aws_instance.base (remote-exec):   Verifying  : 2:shadow-utils    25/106
+aws_instance.base (remote-exec):   Verifying  : systemd-219-62    26/106
+aws_instance.base (remote-exec):   Verifying  : 1:openssl-1.0.    27/106
+aws_instance.base (remote-exec):   Verifying  : rh-amazon-rhui    28/106
+aws_instance.base (remote-exec):   Verifying  : libssh2-1.4.3-    29/106
+aws_instance.base (remote-exec):   Verifying  : tzdata-2019a-1    30/106
+aws_instance.base (remote-exec):   Verifying  : libgomp-4.8.5-    31/106
+aws_instance.base (remote-exec):   Verifying  : selinux-policy    32/106
+aws_instance.base (remote-exec):   Verifying  : selinux-policy    33/106
+aws_instance.base (remote-exec):   Verifying  : libteam-1.27-6    34/106
+aws_instance.base (remote-exec):   Verifying  : teamd-1.27-6.e    35/106
+aws_instance.base (remote-exec):   Verifying  : 1:dbus-libs-1.    36/106
+aws_instance.base (remote-exec):   Verifying  : 1:dbus-1.10.24    37/106
+aws_instance.base (remote-exec):   Verifying  : libsmartcols-2    38/106
+aws_instance.base (remote-exec):   Verifying  : libuuid-2.23.2    39/106
+aws_instance.base (remote-exec):   Verifying  : systemd-sysv-2    40/106
+aws_instance.base (remote-exec):   Verifying  : 7:device-mappe    41/106
+aws_instance.base (remote-exec):   Verifying  : linux-firmware    42/106
+aws_instance.base (remote-exec):   Verifying  : python-2.7.5-8    43/106
+aws_instance.base (remote-exec):   Verifying  : util-linux-2.2    44/106
+aws_instance.base (remote-exec):   Verifying  : kernel-3.10.0-    45/106
+aws_instance.base (remote-exec):   Verifying  : rsync-3.1.2-6.    46/106
+aws_instance.base (remote-exec):   Verifying  : libgcc-4.8.5-3    47/106
+aws_instance.base (remote-exec):   Verifying  : libgudev1-219-    48/106
+aws_instance.base (remote-exec):   Verifying  : polkit-0.112-1    49/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    50/106
+aws_instance.base (remote-exec):   Verifying  : python-libs-2.    51/106
+aws_instance.base (remote-exec):   Verifying  : xfsprogs-4.5.0    52/106
+aws_instance.base (remote-exec):   Verifying  : kernel-tools-3    53/106
+aws_instance.base (remote-exec):   Verifying  : glibc-common-2    54/106
+aws_instance.base (remote-exec):   Verifying  : python-2.7.5-7    55/106
+aws_instance.base (remote-exec):   Verifying  : libmount-2.23.    56/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    57/106
+aws_instance.base (remote-exec):   Verifying  : libgcc-4.8.5-3    58/106
+aws_instance.base (remote-exec):   Verifying  : libstdc++-4.8.    59/106
+aws_instance.base (remote-exec):   Verifying  : teamd-1.27-5.e    60/106
+aws_instance.base (remote-exec):   Verifying  : 7:device-mappe    61/106
+aws_instance.base (remote-exec):   Verifying  : tzdata-2018i-1    62/106
+aws_instance.base (remote-exec):   Verifying  : 2:shadow-utils    63/106
+aws_instance.base (remote-exec):   Verifying  : libgomp-4.8.5-    64/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    65/106
+aws_instance.base (remote-exec):   Verifying  : selinux-policy    66/106
+aws_instance.base (remote-exec):   Verifying  : selinux-policy    67/106
+aws_instance.base (remote-exec):   Verifying  : libsmartcols-2    68/106
+aws_instance.base (remote-exec):   Verifying  : kernel-tools-l    69/106
+aws_instance.base (remote-exec):   Verifying  : python-jinja2-    70/106
+aws_instance.base (remote-exec):   Verifying  : systemd-sysv-2    71/106
+aws_instance.base (remote-exec):   Verifying  : iproute-4.11.0    72/106
+aws_instance.base (remote-exec):   Verifying  : cloud-init-18.    73/106
+aws_instance.base (remote-exec):   Verifying  : libuuid-2.23.2    74/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    75/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag    76/106
+aws_instance.base (remote-exec):   Verifying  : rsync-3.1.2-4.    77/106
+aws_instance.base (remote-exec):   Verifying  : libgudev1-219-    78/106
+aws_instance.base (remote-exec):   Verifying  : util-linux-2.2    79/106
+aws_instance.base (remote-exec):   Verifying  : kexec-tools-2.    80/106
+aws_instance.base (remote-exec):   Verifying  : 1:dbus-1.10.24    81/106
+aws_instance.base (remote-exec):   Verifying  : systemd-libs-2    82/106
+aws_instance.base (remote-exec):   Verifying  : libblkid-2.23.    83/106
+aws_instance.base (remote-exec):   Verifying  : kernel-tools-3    84/106
+aws_instance.base (remote-exec):   Verifying  : glib2-2.56.1-2    85/106
+aws_instance.base (remote-exec):   Verifying  : 1:openssl-1.0.    86/106
+aws_instance.base (remote-exec):   Verifying  : 1:dbus-libs-1.    87/106
+aws_instance.base (remote-exec):   Verifying  : python-perf-3.    88/106
+aws_instance.base (remote-exec):   Verifying  : python-libs-2.    89/106
+aws_instance.base (remote-exec):   Verifying  : 2:microcode_ct    90/106
+aws_instance.base (remote-exec):   Verifying  : glibc-common-2    91/106
+aws_instance.base (remote-exec):   Verifying  : tuned-2.10.0-6    92/106
+aws_instance.base (remote-exec):   Verifying  : 7:device-mappe    93/106
+aws_instance.base (remote-exec):   Verifying  : 32:bind-licens    94/106
+aws_instance.base (remote-exec):   Verifying  : systemd-219-62    95/106
+aws_instance.base (remote-exec):   Verifying  : libteam-1.27-5    96/106
+aws_instance.base (remote-exec):   Verifying  : 1:openssl-libs    97/106
+aws_instance.base (remote-exec):   Verifying  : xfsprogs-4.5.0    98/106
+aws_instance.base (remote-exec):   Verifying  : nss-pem-1.0.3-    99/106
+aws_instance.base (remote-exec):   Verifying  : libssh2-1.4.3-   100/106
+aws_instance.base (remote-exec):   Verifying  : 32:bind-libs-l   101/106
+aws_instance.base (remote-exec):   Verifying  : rh-amazon-rhui   102/106
+aws_instance.base (remote-exec):   Verifying  : polkit-0.112-1   103/106
+aws_instance.base (remote-exec):   Verifying  : glibc-2.17-260   104/106
+aws_instance.base (remote-exec):   Verifying  : 2:vim-minimal-   105/106
+aws_instance.base (remote-exec):   Verifying  : 1:NetworkManag   106/106
+
+aws_instance.base (remote-exec): Installed:
+aws_instance.base (remote-exec):   kernel.x86_64 0:3.10.0-957.21.3.el7
+
+aws_instance.base (remote-exec): Dependency Installed:
+aws_instance.base (remote-exec):   linux-firmware.noarch 0:20180911-69.git85c5d90.el7
+
+aws_instance.base (remote-exec): Updated:
+aws_instance.base (remote-exec):   NetworkManager.x86_64 1:1.12.0-10.el7_6
+aws_instance.base (remote-exec):   NetworkManager-config-server.noarch 1:1.12.0-10.el7_6
+aws_instance.base (remote-exec):   NetworkManager-libnm.x86_64 1:1.12.0-10.el7_6
+aws_instance.base (remote-exec):   NetworkManager-team.x86_64 1:1.12.0-10.el7_6
+aws_instance.base (remote-exec):   NetworkManager-tui.x86_64 1:1.12.0-10.el7_6
+aws_instance.base (remote-exec):   bind-libs-lite.x86_64 32:9.9.4-74.el7_6.1
+aws_instance.base (remote-exec):   bind-license.noarch 32:9.9.4-74.el7_6.1
+aws_instance.base (remote-exec):   cloud-init.x86_64 0:18.2-1.el7_6.2
+aws_instance.base (remote-exec):   dbus.x86_64 1:1.10.24-13.el7_6
+aws_instance.base (remote-exec):   dbus-libs.x86_64 1:1.10.24-13.el7_6
+aws_instance.base (remote-exec):   device-mapper.x86_64 7:1.02.149-10.el7_6.8
+aws_instance.base (remote-exec):   device-mapper-libs.x86_64 7:1.02.149-10.el7_6.8
+aws_instance.base (remote-exec):   glib2.x86_64 0:2.56.1-4.el7_6
+aws_instance.base (remote-exec):   glibc.x86_64 0:2.17-260.el7_6.6
+aws_instance.base (remote-exec):   glibc-common.x86_64 0:2.17-260.el7_6.6
+aws_instance.base (remote-exec):   iproute.x86_64 0:4.11.0-14.el7_6.2
+aws_instance.base (remote-exec):   kernel-tools.x86_64 0:3.10.0-957.21.3.el7
+aws_instance.base (remote-exec):   kernel-tools-libs.x86_64 0:3.10.0-957.21.3.el7
+aws_instance.base (remote-exec):   kexec-tools.x86_64 0:2.0.15-21.el7_6.3
+aws_instance.base (remote-exec):   libblkid.x86_64 0:2.23.2-59.el7_6.1
+aws_instance.base (remote-exec):   libgcc.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   libgomp.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   libgudev1.x86_64 0:219-62.el7_6.7
+aws_instance.base (remote-exec):   libmount.x86_64 0:2.23.2-59.el7_6.1
+aws_instance.base (remote-exec):   libsmartcols.x86_64 0:2.23.2-59.el7_6.1
+aws_instance.base (remote-exec):   libssh2.x86_64 0:1.4.3-12.el7_6.2
+aws_instance.base (remote-exec):   libstdc++.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   libteam.x86_64 0:1.27-6.el7_6.1
+aws_instance.base (remote-exec):   libuuid.x86_64 0:2.23.2-59.el7_6.1
+aws_instance.base (remote-exec):   microcode_ctl.x86_64 2:2.1-47.5.el7_6
+aws_instance.base (remote-exec):   nss-pem.x86_64 0:1.0.3-5.el7_6.1
+aws_instance.base (remote-exec):   openssl.x86_64 1:1.0.2k-16.el7_6.1
+aws_instance.base (remote-exec):   openssl-libs.x86_64 1:1.0.2k-16.el7_6.1
+aws_instance.base (remote-exec):   polkit.x86_64 0:0.112-18.el7_6.1
+aws_instance.base (remote-exec):   python.x86_64 0:2.7.5-80.el7_6
+aws_instance.base (remote-exec):   python-jinja2.noarch 0:2.7.2-3.el7_6
+aws_instance.base (remote-exec):   python-libs.x86_64 0:2.7.5-80.el7_6
+aws_instance.base (remote-exec):   python-perf.x86_64 0:3.10.0-957.21.3.el7
+aws_instance.base (remote-exec):   rh-amazon-rhui-client.noarch 0:2.2.147-1.el7
+aws_instance.base (remote-exec):   rsync.x86_64 0:3.1.2-6.el7_6.1
+aws_instance.base (remote-exec):   selinux-policy.noarch 0:3.13.1-229.el7_6.12
+aws_instance.base (remote-exec):   selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.12
+aws_instance.base (remote-exec):   shadow-utils.x86_64 2:4.1.5.1-25.el7_6.1
+aws_instance.base (remote-exec):   systemd.x86_64 0:219-62.el7_6.7
+aws_instance.base (remote-exec):   systemd-libs.x86_64 0:219-62.el7_6.7
+aws_instance.base (remote-exec):   systemd-sysv.x86_64 0:219-62.el7_6.7
+aws_instance.base (remote-exec):   teamd.x86_64 0:1.27-6.el7_6.1
+aws_instance.base (remote-exec):   tuned.noarch 0:2.10.0-6.el7_6.3
+aws_instance.base (remote-exec):   tzdata.noarch 0:2019a-1.el7
+aws_instance.base (remote-exec):   util-linux.x86_64 0:2.23.2-59.el7_6.1
+aws_instance.base (remote-exec):   vim-minimal.x86_64 2:7.4.160-6.el7_6
+aws_instance.base (remote-exec):   xfsprogs.x86_64 0:4.5.0-19.el7_6
+
+aws_instance.base (remote-exec): Complete!
+aws_instance.base: Still creating... [5m20s elapsed]
+aws_instance.base (remote-exec): Loaded plugins: amazon-id, rhui-lb,
+aws_instance.base (remote-exec):               : search-disabled-repos
+aws_instance.base (remote-exec): rhui-REGION-clie | 2.9 kB     00:00
+aws_instance.base (remote-exec): rhui-REGION-rhel | 3.5 kB     00:00
+aws_instance.base (remote-exec): rhui-REGION-rhel | 3.8 kB     00:00
+aws_instance.base (remote-exec): Resolving Dependencies
+aws_instance.base (remote-exec): --> Running transaction check
+aws_instance.base (remote-exec): ---> Package gcc.x86_64 0:4.8.5-36.el7_6.2 will be installed
+aws_instance.base (remote-exec): --> Processing Dependency: cpp = 4.8.5-36.el7_6.2 for package: gcc-4.8.5-36.el7_6.2.x86_64
+aws_instance.base (remote-exec): --> Processing Dependency: glibc-devel >= 2.2.90-12 for package: gcc-4.8.5-36.el7_6.2.x86_64
+aws_instance.base (remote-exec): --> Processing Dependency: libmpc.so.3()(64bit) for package: gcc-4.8.5-36.el7_6.2.x86_64
+aws_instance.base (remote-exec): --> Processing Dependency: libmpfr.so.4()(64bit) for package: gcc-4.8.5-36.el7_6.2.x86_64
+aws_instance.base (remote-exec): ---> Package gcc-c++.x86_64 0:4.8.5-36.el7_6.2 will be installed
+aws_instance.base (remote-exec): --> Processing Dependency: libstdc++-devel = 4.8.5-36.el7_6.2 for package: gcc-c++-4.8.5-36.el7_6.2.x86_64
+aws_instance.base (remote-exec): ---> Package nano.x86_64 0:2.3.1-10.el7 will be installed
+aws_instance.base (remote-exec): --> Running transaction check
+aws_instance.base (remote-exec): ---> Package cpp.x86_64 0:4.8.5-36.el7_6.2 will be installed
+aws_instance.base (remote-exec): ---> Package glibc-devel.x86_64 0:2.17-260.el7_6.6 will be installed
+aws_instance.base (remote-exec): --> Processing Dependency: glibc-headers = 2.17-260.el7_6.6 for package: glibc-devel-2.17-260.el7_6.6.x86_64
+aws_instance.base (remote-exec): --> Processing Dependency: glibc-headers for package: glibc-devel-2.17-260.el7_6.6.x86_64
+aws_instance.base (remote-exec): ---> Package libmpc.x86_64 0:1.0.1-3.el7 will be installed
+aws_instance.base (remote-exec): ---> Package libstdc++-devel.x86_64 0:4.8.5-36.el7_6.2 will be installed
+aws_instance.base (remote-exec): ---> Package mpfr.x86_64 0:3.1.1-4.el7 will be installed
+aws_instance.base (remote-exec): --> Running transaction check
+aws_instance.base (remote-exec): ---> Package glibc-headers.x86_64 0:2.17-260.el7_6.6 will be installed
+aws_instance.base (remote-exec): --> Processing Dependency: kernel-headers >= 2.2.1 for package: glibc-headers-2.17-260.el7_6.6.x86_64
+aws_instance.base (remote-exec): --> Processing Dependency: kernel-headers for package: glibc-headers-2.17-260.el7_6.6.x86_64
+aws_instance.base (remote-exec): --> Running transaction check
+aws_instance.base (remote-exec): ---> Package kernel-headers.x86_64 0:3.10.0-957.21.3.el7 will be installed
+aws_instance.base (remote-exec): --> Finished Dependency Resolution
+
+aws_instance.base (remote-exec): Dependencies Resolved
+
+aws_instance.base (remote-exec): ========================================
+aws_instance.base (remote-exec):  Package
+aws_instance.base (remote-exec):         Arch   Version          Repository
+aws_instance.base (remote-exec):                                    Size
+aws_instance.base (remote-exec): ========================================
+aws_instance.base (remote-exec): Installing:
+aws_instance.base (remote-exec):  gcc    x86_64 4.8.5-36.el7_6.2 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    16 M
+aws_instance.base (remote-exec):  gcc-c++
+aws_instance.base (remote-exec):         x86_64 4.8.5-36.el7_6.2 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   7.2 M
+aws_instance.base (remote-exec):  nano   x86_64 2.3.1-10.el7     rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   440 k
+aws_instance.base (remote-exec): Installing for dependencies:
+aws_instance.base (remote-exec):  cpp    x86_64 4.8.5-36.el7_6.2 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   6.0 M
+aws_instance.base (remote-exec):  glibc-devel
+aws_instance.base (remote-exec):         x86_64 2.17-260.el7_6.6 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   1.1 M
+aws_instance.base (remote-exec):  glibc-headers
+aws_instance.base (remote-exec):         x86_64 2.17-260.el7_6.6 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   684 k
+aws_instance.base (remote-exec):  kernel-headers
+aws_instance.base (remote-exec):         x86_64 3.10.0-957.21.3.el7
+aws_instance.base (remote-exec):                                 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   8.0 M
+aws_instance.base (remote-exec):  libmpc x86_64 1.0.1-3.el7      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                    51 k
+aws_instance.base (remote-exec):  libstdc++-devel
+aws_instance.base (remote-exec):         x86_64 4.8.5-36.el7_6.2 rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   1.5 M
+aws_instance.base (remote-exec):  mpfr   x86_64 3.1.1-4.el7      rhui-REGION-rhel-server-releases
+aws_instance.base (remote-exec):                                   203 k
+
+aws_instance.base (remote-exec): Transaction Summary
+aws_instance.base (remote-exec): ========================================
+aws_instance.base (remote-exec): Install  3 Packages (+7 Dependent packages)
+
+aws_instance.base (remote-exec): Total download size: 41 M
+aws_instance.base (remote-exec): Installed size: 86 M
+aws_instance.base (remote-exec): Downloading packages:
+aws_instance.base (remote-exec): (2/10): gcc-4.8 0% |    0 B   --:-- ETA
+aws_instance.base (remote-exec): (1/10): cpp-4.8.5- | 6.0 MB   00:00
+aws_instance.base (remote-exec): (2/10): gcc-c++-4. | 7.2 MB   00:00
+aws_instance.base (remote-exec): (4/10): glibc- 65% |  27 MB   --:-- ETA
+aws_instance.base (remote-exec): (3/10): gcc-4.8.5- |  16 MB   00:00
+aws_instance.base (remote-exec): (4/10): glibc-deve | 1.1 MB   00:00
+aws_instance.base (remote-exec): (5/10): glibc-head | 684 kB   00:00
+aws_instance.base (remote-exec): (6/10): libmpc-1.0 |  51 kB   00:00
+aws_instance.base (remote-exec): (7/10): mpfr-3.1.1 | 203 kB   00:00
+aws_instance.base (remote-exec): (8/10): libstdc++- | 1.5 MB   00:00
+aws_instance.base (remote-exec): (9/10): nano-2.3.1 | 440 kB   00:00
+aws_instance.base (remote-exec): (10/10): kernel-he | 8.0 MB   00:00
+aws_instance.base (remote-exec): ----------------------------------------
+aws_instance.base (remote-exec): Total       37 MB/s |  41 MB  00:01
+aws_instance.base (remote-exec): Running transaction check
+aws_instance.base (remote-exec): Running transaction test
+aws_instance.base (remote-exec): Transaction test succeeded
+aws_instance.base (remote-exec): Running transaction
+aws_instance.base (remote-exec):   Installing : mpfr-3. [        ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [#       ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [##      ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [###     ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [####    ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [#####   ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [######  ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3. [####### ]  1/10
+aws_instance.base (remote-exec):   Installing : mpfr-3.1.1-4.el7    1/10
+aws_instance.base (remote-exec):   Installing : libmpc- [        ]  2/10
+aws_instance.base (remote-exec):   Installing : libmpc- [####    ]  2/10
+aws_instance.base (remote-exec):   Installing : libmpc- [######  ]  2/10
+aws_instance.base (remote-exec):   Installing : libmpc- [####### ]  2/10
+aws_instance.base (remote-exec):   Installing : libmpc-1.0.1-3.e    2/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [        ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [#       ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [##      ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [###     ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [####    ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [#####   ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [######  ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8 [####### ]  3/10
+aws_instance.base (remote-exec):   Installing : cpp-4.8.5-36.el7    3/10
+aws_instance.base (remote-exec):   Installing : kernel- [        ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [#       ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [##      ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [###     ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [####    ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [#####   ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [######  ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel- [####### ]  4/10
+aws_instance.base (remote-exec):   Installing : kernel-headers-3    4/10
+aws_instance.base (remote-exec):   Installing : glibc-h [        ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [#       ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [##      ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [###     ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [####    ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [#####   ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [######  ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-h [####### ]  5/10
+aws_instance.base (remote-exec):   Installing : glibc-headers-2.    5/10
+aws_instance.base (remote-exec):   Installing : glibc-d [        ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [#       ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [##      ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [###     ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [####    ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [#####   ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [######  ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-d [####### ]  6/10
+aws_instance.base (remote-exec):   Installing : glibc-devel-2.17    6/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [        ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [#       ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [##      ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [###     ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [####    ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [#####   ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [######  ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8 [####### ]  7/10
+aws_instance.base (remote-exec):   Installing : gcc-4.8.5-36.el7    7/10
+aws_instance.base (remote-exec):   Installing : libstdc [        ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc [#       ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc [##      ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc [###     ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc [####    ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc [#####   ]  8/10
+aws_instance.base: Still creating... [5m30s elapsed]
+aws_instance.base (remote-exec):   Installing : libstdc [######  ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc [####### ]  8/10
+aws_instance.base (remote-exec):   Installing : libstdc++-devel-    8/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [        ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [#       ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [##      ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [###     ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [####    ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [#####   ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [######  ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++ [####### ]  9/10
+aws_instance.base (remote-exec):   Installing : gcc-c++-4.8.5-36    9/10
+aws_instance.base (remote-exec):   Installing : nano-2. [        ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [#       ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [##      ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [###     ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [####    ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [#####   ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [######  ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2. [####### ] 10/10
+aws_instance.base (remote-exec):   Installing : nano-2.3.1-10.el   10/10
+aws_instance.base (remote-exec):   Verifying  : gcc-c++-4.8.5-36    1/10
+aws_instance.base (remote-exec):   Verifying  : mpfr-3.1.1-4.el7    2/10
+aws_instance.base (remote-exec):   Verifying  : glibc-devel-2.17    3/10
+aws_instance.base (remote-exec):   Verifying  : libmpc-1.0.1-3.e    4/10
+aws_instance.base (remote-exec):   Verifying  : cpp-4.8.5-36.el7    5/10
+aws_instance.base (remote-exec):   Verifying  : gcc-4.8.5-36.el7    6/10
+aws_instance.base (remote-exec):   Verifying  : glibc-headers-2.    7/10
+aws_instance.base (remote-exec):   Verifying  : nano-2.3.1-10.el    8/10
+aws_instance.base (remote-exec):   Verifying  : libstdc++-devel-    9/10
+aws_instance.base (remote-exec):   Verifying  : kernel-headers-3   10/10
+
+aws_instance.base (remote-exec): Installed:
+aws_instance.base (remote-exec):   gcc.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   gcc-c++.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   nano.x86_64 0:2.3.1-10.el7
+
+aws_instance.base (remote-exec): Dependency Installed:
+aws_instance.base (remote-exec):   cpp.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   glibc-devel.x86_64 0:2.17-260.el7_6.6
+aws_instance.base (remote-exec):   glibc-headers.x86_64 0:2.17-260.el7_6.6
+aws_instance.base (remote-exec):   kernel-headers.x86_64 0:3.10.0-957.21.3.el7
+aws_instance.base (remote-exec):   libmpc.x86_64 0:1.0.1-3.el7
+aws_instance.base (remote-exec):   libstdc++-devel.x86_64 0:4.8.5-36.el7_6.2
+aws_instance.base (remote-exec):   mpfr.x86_64 0:3.1.1-4.el7
+
+aws_instance.base (remote-exec): Complete!
+aws_instance.base: Creation complete after 5m31s [id=i-012305ece1aa23c26]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+CLAP_OFF = 0 22 * * 1-5 *
+CLAP_ON = 0 7 * * 1-5 *
+ami_default_user = ec2-user
+dns_name = ec2-10-100-123-101.compute-1.amazonaws.com
+instance_id = i-012305ece1aa23c26
+instance_state = running
+key_name = CraigPomaUMUC
+poc = Craig Poma
+private_ip_address = 172.31.1.193
+public_ip_address = 10.100.123.101
+
