@@ -33,26 +33,36 @@ variable "ami_default_user" {
   default     = "ec2-user"
 }
 
+# Update to match your key name and path
 variable "key_name" {
   description = "SSH key"
   default     = "CraigPomaUMUC"
 }
 
+variable "private_key_path" {
+  description = "Private Key Path for Connection"
+  default     = "./private/CraigPomaUMUC.pem"
+}
+
+# Update to match your subnet
 variable "subnet_id" {
   description = "Subnet for Instance"
   default     = "subnet-a053e9c7"
 }
 
+# Update to match your Security Group IDs
 variable "vpc_security_group_ids" {
   description = "Security Groups for Instance"
   default     = ["sg-b0a628fd", "sg-00978e100f38abc81"]
 }
 
+# Update to match your private IP desired or comment out to make dynamic
 variable "private_ip_address" {
   description = "Private IP Address. Also Dynamic"
   default     = "172.31.1.193"
 }
 
+# Update to make your TAG relevant to you as the Author/POC
 variable "poc" {
   description = "Point of Contact"
   default     = "Craig Poma"
@@ -83,12 +93,6 @@ variable "clap_off" {
   description = "Clapper OFF Parameters - OFF weekdays 10pm"
   default     = "0 22 * * 1-5 *"
 }
-
-variable "private_key_path" {
-  description = "Private Key Path for Connection"
-  default     = "./private/CraigPomaUMUC.pem"
-}
-
 
 ##################################################
 # THINGS TO PASS IN ON COMMAND LINE
