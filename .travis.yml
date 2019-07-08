@@ -8,6 +8,7 @@ env:
   - TMPDIR="${TMPDIR:-/tmp}"
   - VERSION="0.12.3"
 before_install:
+  - npm install -g jsonlint
   - if ! terraform version ; then
       mkdir -p "${HOME}/bin"
       pushd "${TMPDIR}" ;
@@ -22,3 +23,5 @@ before_install:
     fi
 script:
   - test/check-format.sh
+  - jsonlint -q deploy.tf.json
+
