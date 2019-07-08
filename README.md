@@ -6,7 +6,7 @@ This short Terraform example will deploy a Redhat 7.6 AMI, patch it with YUM, th
 
 There is really no "installation" required. The package assumes you have installed Terraform version 0.12.x or greater. NOTE: The terraform packages had major updates done to them with the 0.12.x release. 
 
-It is also assumed you have and AWS Acocunt and know the AWS_SECRET_KEY and AWS_ACCESS_KEY_ID for your IAM user to launch the EC2 instance.
+It is also assumed you have and AWS Account and know the AWS_SECRET_KEY and AWS_ACCESS_KEY_ID for your IAM user to launch the EC2 instance.
 
 ## Usage
 Make sure to update the variables.tf file with the proper Subnet, Security groups, etc for your AWS account.
