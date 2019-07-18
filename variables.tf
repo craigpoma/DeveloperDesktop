@@ -16,6 +16,7 @@ variable "ami" {
   description = "The AMIs to use"
   default     = "ami-000db10762d0c4c05"
 }
+# Redhat 7.7 BETA - ami-00552bd39464c2e3a
 
 # Default Free Tier
 variable "instance_type" {
@@ -93,6 +94,17 @@ variable "clap_off" {
   description = "Clapper OFF Parameters - OFF weekdays 10pm"
   default     = "0 22 * * 1-5 *"
 }
+
+variable "chef_workstation_rpm_name" {
+  description = "Chef Workstation RPM Name"
+  default     = "chef-workstation-0.7.4-1.el7.x86_64.rpm"
+}
+
+variable "chef_workstation_rpm_url" {
+  description = "Chef Workstation RPM URL"
+  default     = "https://packages.chef.io/files/stable/chef-workstation/0.7.4/el/7/chef-workstation-0.7.4-1.el7.x86_64.rpm"
+}
+
 
 ##################################################
 # THINGS TO PASS IN ON COMMAND LINE
