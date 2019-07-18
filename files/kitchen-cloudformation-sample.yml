@@ -1,0 +1,40 @@
+---
+verifier:
+  name: inspec
+
+driver:
+  name: cloudformation
+  stack_name: sample_stack
+#  template_file: /test/example.template
+#  parameters:
+#    base_package: wget
+#  change_set_name: mystack-cs
+#  change_set_template_file: TestSecurityGroupCs.template
+
+## The forwarded_port port feature lets you connect to ports on the VM guest via
+## localhost on the host.
+## see also: https://www.vagrantup.com/docs/networking/forwarded_ports.html
+
+#  network:
+#    - ["forwarded_port", {guest: 80, host: 8080}]
+
+provisioner:
+  name: cloudformation
+
+  ## product_name and product_version specifies a specific Chef product and version to install.
+  ## see the Chef documentation for more details: https://docs.chef.io/config_yml_kitchen.html
+  #  product_name: chef
+  #  product_version: 15
+
+platforms:
+  - name: rhel-7
+    driver: cloudformation
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+
+
