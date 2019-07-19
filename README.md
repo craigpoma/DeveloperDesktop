@@ -1,7 +1,13 @@
 # DeveloperDesktop
 [![Build Status](https://travis-ci.com/cpoma/DeveloperDesktop.svg?branch=master)](https://travis-ci.com/cpoma/DeveloperDesktop)
 
-This short Terraform example will deploy a Redhat 7.6 AMI, patch it with YUM, then install the nano, gcc, and gcc-gcc++ packages. Lastly, it will download the AWS-CLI bundle and install it.
+This short Terraform example will deploy a Redhat 7.6 AMI, patch it with YUM, then install the nano, wget, gcc, and gcc-gcc++ packages. It will deploy the Gnome Desktop and Add Sublime and VS Code. Lastly, it will download the AWS-CLI bundle and install it.
+
+The desktop listnes to a standard VCN connection over Port 3389. You can connect to the Desktop using MS Terminal Server Clinet (mstsc).The default user is:
+User ID: student
+Password: P@ssword1234
+
+The current build takes about 16 min. start to finish. Tested with RHEL-7.6_HVM_GA-20190128-x86_64-0-Hourly2-GP2 (ami-000db10762d0c4c05)  
 
 ## Installation
 
@@ -36,3 +42,5 @@ See CHANGES.md
 
 ## License
 Apache License 2.0
+
+

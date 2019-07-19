@@ -95,6 +95,16 @@ variable "clap_off" {
   default     = "0 22 * * 1-5 *"
 }
 
+variable "default_user_name" {
+  description = "Default Desktop Username"
+  default     = "student"
+}
+
+variable "default_user_password" {
+  description = "Default Desktop Password"
+  default     = "P@ssword1234"
+}
+
 variable "chef_workstation_rpm_name" {
   description = "Chef Workstation RPM Name"
   default     = "chef-workstation-0.7.4-1.el7.x86_64.rpm"
