@@ -69,8 +69,8 @@
                       {
                         "file": 
                         {
-                             "source"    : "./files/completed_upload.txt",
-                             "destination" : "/tmp/completed_upload.txt",
+                             "source"    : "./files/buildInspecDependancies.sh",
+                             "destination" : "/tmp/buildInspecDependancies.sh",
                              "connection": 
                              {
                                   "type": "ssh",
@@ -83,12 +83,81 @@
                         }
                       },
                       {
+                        "file": 
+                        {
+                             "source"    : "./files/kitchen-cloudformation.gemspec.1",
+                             "destination" : "/tmp/kitchen-cloudformation.gemspec.1",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      }, 
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/kitchen-cloudformation-sample.yml",
+                             "destination" : "/tmp/kitchen-cloudformation-sample.yml",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/kitchen-cloudformation.gemspec.2",
+                             "destination" : "/tmp/kitchen-cloudformation.gemspec.2",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/completed_upload.txt",
+                             "destination" : "/tmp/completed_upload.txt",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },                 
+                      {
                         "remote-exec": 
                         {
                              "inline": 
                              [
                               "sudo yum -y update",
-                              "sudo yum -y install nano gcc gcc-c++"
+                              "sudo yum -y install wget nano gcc gcc-c++ dos2unix",
+                              "sudo wget -O /tmp/${var.chef_workstation_rpm_name}  ${var.chef_workstation_rpm_url}",
+                              "sudo rpm -Uvh /tmp/${var.chef_workstation_rpm_name}",
+                              "chmod 755 /tmp/buildInspecDependancies.sh",
+                              "dos2unix /tmp/buildInspecDependancies.sh",
+                              "sudo /tmp/buildInspecDependancies.sh"                          
                              ],
                              "connection": 
                              {

@@ -21,5 +21,9 @@ while ! [ -f /tmp/completed_upload.txt ];
 do
     sleep 1
 done
-#chmod 755 /tmp/partitionLVM_XFS_50GB.sh
-#/tmp/partitionLVM_XFS_50GB.sh
+chmod 755 /tmp/buildInspecDependancies.sh
+dos2unix /tmp/buildInspecDependancies.sh
+dos2unix /tmp/kitchen-cloudformation.gemspec.1
+dos2unix /tmp/kitchen-cloudformation.gemspec.2
+dos2unix /tmp/kitchen-cloudformation-sample.yml
+chmod 644 /tmp/kitchen-cloudformation.gemspec.1 /tmp/kitchen-cloudformation.gemspec.2
