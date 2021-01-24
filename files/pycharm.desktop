@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=PyCharm
-Icon=/opt/pycharm-community-2019.1.3/bin/pycharm.png
-Exec="/opt/pycharm-community-2019.1.3/bin/pycharm.sh" %f
+Icon=/opt/pycharm-community-2020.1.1/bin/pycharm.png
+Exec="/opt/pycharm-community-2020.1.1/bin/pycharm.sh" %f
 Comment=The Drive to Develop
 Categories=Development;IDE;
 Terminal=false
