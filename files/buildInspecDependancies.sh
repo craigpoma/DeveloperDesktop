@@ -23,4 +23,17 @@ rm -f /tmp/cloudformation_sample/kitchen.yml
 cp /tmp/kitchen-cloudformation-sample.yml /tmp/cloudformation_sample/kitchen.yml
 cd /tmp/cloudformation_sample
 kitchen list
+# Install GIT to current version - need old version first to do pull
+yum install -y git
+cd /root
+yum -y install wget unzip tar make gcc openssl-devel libcurl-devel expat-devel autoconf
+git clone https://github.com/git/git
+yum erase -y git
+cd /root/git
+make configure
+./configure --prefix=/usr/local/git
+make && make install
+ln -svf /usr/local/git/bin/* /usr/bin/
+
+
 
