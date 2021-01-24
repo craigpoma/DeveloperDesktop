@@ -97,7 +97,7 @@ variable "clap_off" {
 
 variable "default_user_name" {
   description = "Default Desktop Username"
-  default     = "student"
+  default     = "developer"
 }
 
 variable "default_user_password" {
@@ -107,12 +107,12 @@ variable "default_user_password" {
 
 variable "chef_workstation_rpm_name" {
   description = "Chef Workstation RPM Name"
-  default     = "chef-workstation-0.7.4-1.el7.x86_64.rpm"
+  default     = "chef-workstation-0.18.3-1.el7.x86_64.rpm"
 }
 
 variable "chef_workstation_rpm_url" {
   description = "Chef Workstation RPM URL"
-  default     = "https://packages.chef.io/files/stable/chef-workstation/0.7.4/el/7/chef-workstation-0.7.4-1.el7.x86_64.rpm"
+  default     = "https://packages.chef.io/files/stable/chef-workstation/0.18.3/el/7/chef-workstation-0.18.3-1.el7.x86_64.rpm"
 }
 
 
