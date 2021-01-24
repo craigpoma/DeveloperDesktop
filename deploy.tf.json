@@ -28,7 +28,15 @@
                       "volume_type": "gp2",
                       "delete_on_termination": "true"
                     },
-
+                    
+                    "ebs_block_device": 
+                    {
+                      "device_name" : "/dev/xvdb",
+                      "volume_size" : 50,
+                      "volume_type" : "gp2",
+                      "delete_on_termination" : true
+                    },
+                    
                     "tags": 
                     {
                       "Name": "${var.hostname}",
@@ -43,7 +51,7 @@
                       "type": "ssh",
                       "timeout": "300s",
                       "user": "${var.ami_default_user}",
-                      "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                      "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                       "agent": "false",
                       "host" : "${aws_instance.base.public_ip}"
                     },
@@ -60,12 +68,44 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
                         }
                       },
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/partitionLVM_XFS_50GB.sh",
+                             "destination" : "/tmp/partitionLVM_XFS_50GB.sh",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      }, 
+                      {
+                        "file": 
+                        {
+                             "source"    : "./files/chef_install.sh",
+                             "destination" : "/tmp/chef_install.sh",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },  
                       {
                         "file": 
                         {
@@ -76,7 +116,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -92,7 +132,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -108,7 +148,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -124,7 +164,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -140,7 +180,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -156,7 +196,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -172,12 +212,28 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
                         }
                       },
+                      {
+                      "file": 
+                        {
+                             "source"    : "./files/rubymine.desktop",
+                             "destination" : "/tmp/rubymine.desktop",
+                             "connection": 
+                             {
+                                  "type": "ssh",
+                                  "timeout": "300s",
+                                  "user": "${var.ami_default_user}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
+                                  "agent": "false",
+                                  "host" : "${aws_instance.base.public_ip}"
+                             }
+                        }
+                      },                      
                       {
                         "file": 
                         {
@@ -188,7 +244,7 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }
@@ -203,15 +259,15 @@
                               "sudo yum -y install wget nano gcc gcc-c++ dos2unix",
                               "sudo wget -O /tmp/${var.chef_workstation_rpm_name}  ${var.chef_workstation_rpm_url}",
                               "sudo rpm -Uvh /tmp/${var.chef_workstation_rpm_name}",
-                              "chmod 755 /tmp/buildInspecDependancies.sh",
-                              "dos2unix /tmp/buildInspecDependancies.sh",
-                              "sudo /tmp/buildInspecDependancies.sh",
                               "sudo yum -y groupinstall \"Server with GUI\"",
                               "sudo ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target",
                               "sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
+                              "sudo yum install -y https://repo.ius.io/ius-release-el7.rpm",
+                              "sudo yum install -y python36u python36u-pip",
                               "sudo yum -y install xrdp tigervnc-server",
                               "sudo systemctl start xrdp",
                               "sudo systemctl enable xrdp",
+                              "sudo firewall-offline-cmd --add-port=3389/tcp",
                               "sudo firewall-cmd --permanent --add-port=3389/tcp",
                               "sudo firewall-cmd --reload",
                               "sudo chcon --type=bin_t /usr/sbin/xrdp",
@@ -227,20 +283,27 @@
                               "sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc",
                               "sudo sh -c 'echo -e \"[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc\" > /etc/yum.repos.d/vscode.repo'",
                               "sudo yum -y install code",
-                              "sudo mkdir /usr/local/share/backgrounds/",
-                              "sudo cp /tmp/defaultBackground.png /usr/local/share/backgrounds/defaultBackground.png",
-                              "sudo chmod 644 /usr/local/share/backgrounds/defaultBackground.png",
-                              "wget -O /tmp/pycharm-community-2019.1.3.tar.gz https://download.jetbrains.com/python/pycharm-community-2019.1.3.tar.gz",
-                              "sudo cp /tmp/pycharm.desktop /usr/share/applications/pycharm.desktop",
-                              "sudo chmod 644 /usr/share/applications/pycharm.desktop",
-                              "sudo tar xfz /tmp/pycharm-community-2019.1.3.tar.gz -C /opt/"
+                              "wget -O /tmp/RubyMine-2020.3.1.tar.gz https://download.jetbrains.com/ruby/RubyMine-2020.3.1.tar.gz",
+                              "sudo tar -C /opt -xzvf /tmp/RubyMine-2020.3.1.tar.gz",
+                              "sudo chown -R ${var.default_user_name}. /opt/RubyMine-2020.3.1/",
+                              "sudo cp /tmp/rubymine.desktop /usr/share/applications/rubymine.desktop",
+                              "sudo chmod 644 /usr/share/applications/rubymine.desktop",
+                              "sudo mkdir /opt/projects",
+                              "sudo chown ${var.default_user_name}. /opt/projects",
+                              "sudo chmod 755 /opt/projects",
+                              "dos2unix /tmp/chef_install.sh",
+                              "sudo chmod 755 /tmp/chef_install.sh",
+                              "sudo chown root. /tmp/chef_install.sh",
+                              "sudo mv /tmp/chef_install.sh  /root/chef_install.sh",
+                              "echo \"@reboot root /root/chef_install.sh &\" | sudo tee -a /etc/crontab",                              
+                              "touch /tmp/reboot_now.txt"
                              ],
                              "connection": 
                              {
                                   "type": "ssh",
                                   "timeout": "1200s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/CraigPomaUMUC.pem\")}",
+                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
                                   "agent": "false",
                                   "host" : "${aws_instance.base.public_ip}"
                              }

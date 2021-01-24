@@ -11,12 +11,19 @@ variable "region" {
   default     = "us-east-1"
 }
 
-# AMI to Pick - Redhat 7.6
+#ami="ami-6871a115"          # RHEL 7.5 RHEL-7.5_HVM_GA-20180322-x86_64-1-Hourly2-GP2
+#ami="ami-08a7d2bfef687328f" # RHEL 7.6 RHEL-7.6_HVM-20190618-x86_64-0-Hourly2-GP2
+#ami="ami-029c0fbe456d58bd1" # RHEL 7.7 RHEL-7.7_HVM-20190923-x86_64-0-Hourly2-GP2
+#ami="ami-08e923f2f38197e46" # RHEL 7.8 RHEL-7.8_HVM_GA-20200225-x86_64-1-Hourly2-GP2
+#ami="ami-005b7876121b7244d" # RHEL 7.9 RHEL-7.9_HVM_GA-20200917-x86_64-0-Hourly2-GP2
+#ami="ami-00e87074e52e6c9f9" # CentOS 7.9 - CentOS 7.9.2009 x86_64 - https://wiki.centos.org/Cloud/AWS
+#ami="ami-06cf02a98a61f9f5e" # CentOS 7.8 - CentOS 7.8.2003 x86_64 - https://wiki.centos.org/Cloud/AWS
+
 variable "ami" {
   description = "The AMIs to use"
-  default     = "ami-000db10762d0c4c05"
+  default     = "ami-005b7876121b7244d"
 }
-# Redhat 7.7 BETA - ami-00552bd39464c2e3a
+
 
 # Default Free Tier
 variable "instance_type" {
@@ -107,12 +114,14 @@ variable "default_user_password" {
 
 variable "chef_workstation_rpm_name" {
   description = "Chef Workstation RPM Name"
-  default     = "chef-workstation-0.18.3-1.el7.x86_64.rpm"
+#  default     = "chef-workstation-0.18.3-1.el7.x86_64.rpm"
+  default     = "chef-workstation-21.1.233-1.el7.x86_64.rpm"
 }
 
 variable "chef_workstation_rpm_url" {
   description = "Chef Workstation RPM URL"
-  default     = "https://packages.chef.io/files/stable/chef-workstation/0.18.3/el/7/chef-workstation-0.18.3-1.el7.x86_64.rpm"
+#  default     = "https://packages.chef.io/files/stable/chef-workstation/0.18.3/el/7/chef-workstation-0.18.3-1.el7.x86_64.rpm"
+  default     = "https://packages.chef.io/files/stable/chef-workstation/21.1.233/el/7/chef-workstation-21.1.233-1.el7.x86_64.rpm"
 }
 
 

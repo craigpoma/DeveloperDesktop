@@ -27,3 +27,16 @@ dos2unix /tmp/kitchen-cloudformation.gemspec.1
 dos2unix /tmp/kitchen-cloudformation.gemspec.2
 dos2unix /tmp/kitchen-cloudformation-sample.yml
 chmod 644 /tmp/kitchen-cloudformation.gemspec.1 /tmp/kitchen-cloudformation.gemspec.2
+while ! [ -f /tmp/reboot_now.txt ];
+do
+    sleep 1
+done
+#reboot now
+#
+# Partition the EBS Volumes to be STIG Compliant
+#
+chown root. /tmp/partitionLVM_XFS_50GB.sh
+chmod 750 /tmp/partitionLVM_XFS_50GB.sh
+dos2unix /tmp/partitionLVM_XFS_50GB.sh
+mv /tmp/partitionLVM_XFS_50GB.sh /root/partitionLVM_XFS_50GB.sh
+/root/partitionLVM_XFS_50GB.sh
