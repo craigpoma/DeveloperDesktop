@@ -53,6 +53,7 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-WANdisco
 EOF
 sudo rpm --import http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
+sleep 10
 sudo yum install git
 #
 # Upgrade to Python 3.8.7
@@ -61,11 +62,11 @@ sudo yum install -y gcc openssl-devel bzip2-devel libffi-devel
 wget -O /tmp/Python-3.8.7.tgz https://www.python.org/ftp/python/3.8.7/Python-3.8.7.tgz
 sudo tar -C /opt -xzf /tmp/Python-3.8.7.tgz
 sudo cat > /root/python_replace.sh << EOF
-sudo /opt/Python-3.8.7/configure --prefix=/usr --enable-optimizations --with-ensurepip=install
 cd /opt/Python-3.8.7/
+configure --prefix=/usr --enable-optimizations --with-ensurepip=install
 make altinstall
 echo "alias python='/bin/python3.8'" >> /root/.bashrc 
-echo "alias python='/bin/python3.8'" >> /home/\${var.default_user_name}/.bashrc 
+echo "alias python='/bin/python3.8'" >> /home/developer/.bashrc 
 echo "alias python='/bin/python3.8'" >> /etc/skel/.bashrc 
 EOF
 chmod 755 /root/python_replace.sh
@@ -154,34 +155,9 @@ mkdir -p /var/log/chef
 # 
 # Setup Validation Key for Organization 
 # 
+# NOT A REAL KEY :-)
 cat > /etc/chef/innotech-validator.pem <<EOF 
------BEGIN RSA PRIVATE KEY-----
-MIIEowIBAAKCAQEAmPCtk6tlzH09ko4nQSW116PGkwgIABeDTDOSxHi5hVep/vTY
-6wXM15OKtbY7gfXNmSOZ8StpKtDqJ/M+yW0Og5RqOtFr36v5vZHgIrTuZi1kNK5I
-rkdm/daz+VXUEq3Huze3ZlpKy9hweQ4Txh2IsQpgJIWOa9wYAa95PmbS1zmPTxgA
-avVmqqxxjngtWdqBrV9FtgeU9SSdA2pM74BU6UoIrfVZ/9BsB2oILcOnsO1dqInP
-EUcRZgaA26YrN83xnigoYMNKm28Fj3kUunlUHpeeszX29dTk6sPJjpd1rB+096Pq
-ctBGCbvZVqaRMXpO7HrO36t+z90clvtx+es08QIDAQABAoIBAARZlBZHIbYXOdEZ
-SfSIZgukFNnJuLCH+qwIK3x7EovAWo1t2V2V5KWdBKz2aergWuCoKpC5c1xMZNyO
-BpMkDu2fIwZZPoA2G/xQUdeq3bz6PYdiDZ8nWL6PhL7qugVt++hPRWAb4VS66zgG
-NnnEDUc7zFA9nDdlIympHAGyWvzUEwSaXrBzzQBTLJy8iGgKcdSFZtW8Bi48IUAL
-x6zfQz6AlRR7TPu+y5ekPU0Z1O75E8qDzKY8E2cZXoGWscxpFfKQw++bkuOHvWBk
-K5I89Bok2MfCCy0g7QvNHGiPL3wNrGKAa2d8x2wl9l+AOofSmjLJG76H8G1AKOWg
-t5vWiiECgYEAy+nXXmw6xnXl1ExDBNM5QEemeBGyQmELOPfCeGI0bQdzV1hN2vAN
-6Ep2rPNLrOZVERxjRXt1hH1B82EZ6xGq2fGGU+cIAOZPwtOIy55N4gg7fPSVlv2K
-WiX7Ti1LCLKvEsrdUkYIPxoLV9U+QmmpMKRsOdOeIiIfdPSr7Mt2QdcCgYEAwAGg
-3glfyEq52bM3v4Ujvsror4vE2oIz1KOvjz5VxzpPDyDdIc1RcC0K2WVwAl8xvTi0
-YtnW0bEtQlwrGUSBQgXN+/pZKN6DHnVomYjew4QZzrVy7LgAoTFCaQWcoCtFuTlM
-7MnfP/EluModUPiN0br3tg7XqxK96MMM4NkC9ncCgYBGQ+sBz3ulXYT31duWMw7c
-VpRHdZmehAAw/jcV8oksNNAK/hO96NByBg7E5AVkq+4OOmD+1V8Wa28pZYFf3jOo
-bDCkgszgOnyrnubZe1BNHhcZpNJTOETPcZ0aQENF2QS5DgybyCQZUmksN///NJen
-elEM0B4Clw2N6K3BqA60+wKBgC0hNNp7gZPmXICa60OM27YAo2h/hamGaQBV6PHW
-SPsm7WY050UGqVmgfKhUe1tTXLGJHn0NjryC1IyAdXDe9TK7gorzcPl2M4N5PTi5
-PwLdjeNUKssRBLTeiyl8NDBBe4Xpvfb6DAtPdvpUJ0fc5BijxY15N5/yK8kF74T5
-/QRJAoGBAL8PdOflUdY9fjO3oSzAah2L8LMKIHHkzYEO4VlYGj0FgTZN2YRujfbU
-ZQqTSL5IvWSbmT6el/P/7Hr1xhVERoLDY73HwsbiDdTfGYrbCKYdkwGal095F/f2
-TJo9db8X6wzHAauOZ2us2QX9Islsw1kI2tM0Y8qCcQ8wDSgiadMn
------END RSA PRIVATE KEY----- 
+RSA Key HERE
 EOF
 # 
 # Setup runlist 
