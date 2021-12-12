@@ -5,7 +5,9 @@ This short Terraform example will deploy a Redhat AMI (7.6, 7.7, 7.8, 7.9 - you 
 the nano, wget, gcc, and gcc-gcc++ packages. It will deploy the Gnome Desktop and Add Sublime, PyCharm, 
 RubyMine, and VS Code. Lastly, it will download the AWS-CLI bundle and install it.
 
-There is a scripted option that uses the USERDATA part of the AMI Launch console versus using Terraform.
+There is a scripted option that uses the USERDATA part of the AMI Launch console versus using Terraform. This will
+launch either a CENTOS 7.x or REDHAT 7.x image of your choice from the [STIG-Partitioned Enterprise Linux (spel)](https://github.com/plus3it/spel) project.
+The scripted approach is "newer" and has sound support installed for the desktop, which is why the build takes slightly longer to deploy. 
 
 The desktop listens to a standard VNC/RDP connection over Port 3389. You can connect to the Desktop using MS Terminal Server Client (mstsc).The default user is:
  - User ID: developer (or student)

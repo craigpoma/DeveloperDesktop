@@ -27,7 +27,6 @@
 #       Cannot place in the initial USERDATA due to USERDATA size limit of 16k of data 
 #
 # sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/configure_image.sh
-# sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/configure_image.sh
 # sudo chmod 700 /root/scripts/configure_image.sh
 # echo "@reboot root /root/scripts/configure_image.sh &" | sudo tee -a /etc/crontab
 #
@@ -141,8 +140,8 @@ sudo sysctl -w net.core.wmem_max=8388608
 # sudo wget https://thumbs.dreamstime.com/b/cyber-security-lock-digital-screen-data-protection-business-technology-privacy-concept-172057525.jpg
 # sudo convert cyber-security-lock-digital-screen-data-protection-business-technology-privacy-concept-172057525.jpg -verbose -depth 24 login_banner.bmp
 # sudo mogrify -resize 800x600 login_banner.bmp
-sudo wget https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/login_banner.bmp
-sudo wget https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/bg_logo.bmp
+sudo wget https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/login_banner.bmp
+sudo wget https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/bg_logo.bmp
 sudo chmod 644 login_banner.bmp bg_logo.bmp
 sudo chown root. login_banner.bmp bg_logo.bmp
 sudo mv login_banner.bmp /usr/share/xrdp/login_banner.bmp

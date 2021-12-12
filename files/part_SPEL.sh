@@ -89,9 +89,14 @@ sudo chmod 700 /root/scripts/partdrive.sh
 sudo /root/scripts/partdrive.sh
 #
 #
-sudo yum install nano -y
-# sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/configure_image.sh
-sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/configure_image.sh
+cd /tmp 
+sudo yum install nano unzip -y
+sudo curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+sudo unzip awscli-bundle.zip
+./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws 
+sudo rm -Rf /tmp/awscli-bundle 
+sudo ln -s /usr/local/bin/aws /bin/aws
+sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/configure_image.sh
 sudo chmod 700 /root/scripts/configure_image.sh
 echo "@reboot root /root/scripts/configure_image.sh &" | sudo tee -a /etc/crontab
 reboot now
