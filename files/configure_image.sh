@@ -784,6 +784,7 @@ make install
 EOF
 sudo mv /tmp/add_rdp_sound.sh /root/scripts/add_rdp_sound.sh
 sudo chmod 700 /root/scripts/add_rdp_sound.sh
+sudo chown root. /root/scripts/add_rdp_sound.sh
 sudo /root/scripts/add_rdp_sound.sh
 #
 ####################################################################################
@@ -831,6 +832,7 @@ sudo ffmpeg -encoders
 EOF
 sudo mv /tmp/add_sound_encoders.sh /root/scripts/add_sound_encoders.sh 
 sudo chmod 700 /root/scripts/add_sound_encoders.sh
+sudo chown root. /root/scripts/add_sound_encoders.sh
 sudo /root/scripts/add_sound_encoders.sh
 ####################################################################################
 # END - Install Sound Encoders

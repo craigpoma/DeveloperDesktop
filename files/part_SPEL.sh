@@ -90,8 +90,9 @@ sudo /root/scripts/partdrive.sh
 #
 #
 sudo yum install nano -y
-sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/configure_image.sh
-sudo chmod 700 configure_image.sh
+# sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/configure_image.sh
+sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/configure_image.sh
+sudo chmod 700 /root/scripts/configure_image.sh
 /root/scripts/configure_image.sh
 reboot now
 #
