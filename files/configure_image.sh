@@ -779,8 +779,11 @@ cd /tmp
 yum -y groupinstall "Development Tools" --skip-broken
 yum -y install rpmdevtools yum-utils nasm
 rpmdev-setuptree
-#
-yum -y install pulseaudio pulseaudio-libs pulseaudio-libs-devel
+yum -y install pulseaudio pulseaudio-libs pulseaudio-libs-devel 
+####################################################################################
+# webrtc-audio-processing-devel required for Redhat Install to Build Sound 
+####################################################################################
+yum -y install webrtc-audio-processing webrtc-audio-processing-devel 
 yum-builddep -y pulseaudio
 #
 yumdownloader --source pulseaudio
