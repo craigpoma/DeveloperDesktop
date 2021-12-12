@@ -3,15 +3,12 @@
   {
     "aws": 
     {
-      "access_key": "${var.access_key}",
-      "secret_key": "${var.secret_key}",
-      "region": "${var.region}",
-      "version": "~> 2.7"
+      "region": "${var.region}"
     }
   },
   "resource": 
   {
-      "aws_instance": 
+      "aws_instance":
       {
         "base": {
                     "ami": "${var.ami}",
@@ -20,23 +17,16 @@
                     "vpc_security_group_ids": "${var.vpc_security_group_ids}",
                     "subnet_id": "${var.subnet_id}",
                     "private_ip": "${var.private_ip_address}",
-                    "user_data" : "${file(\"./files/prepNode.sh\")}",
+                    "user_data" : "${file(\"./files/part_SPEL.sh\")}",
 
                     "root_block_device": 
                     {
-                      "volume_size": "10",
+                      "volume_size": "100",
                       "volume_type": "gp2",
-                      "delete_on_termination": "true"
+                      "delete_on_termination": "true",
+                      "encrypted": "true"
                     },
-                    
-                    "ebs_block_device": 
-                    {
-                      "device_name" : "/dev/xvdb",
-                      "volume_size" : 50,
-                      "volume_type" : "gp2",
-                      "delete_on_termination" : true
-                    },
-                    
+
                     "tags": 
                     {
                       "Name": "${var.hostname}",
@@ -51,189 +41,13 @@
                       "type": "ssh",
                       "timeout": "300s",
                       "user": "${var.ami_default_user}",
-                      "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
+                      "private_key" : "${file(\"${var.private_key_path}\")}",
                       "agent": "false",
-                      "host" : "${aws_instance.base.public_ip}"
+                      "host" : "${var.private_ip_address}"
                     },
 
                     "provisioner": 
                     [
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/prepNode.sh",
-                             "destination" : "/tmp/prepNode.sh",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/partitionLVM_XFS_50GB.sh",
-                             "destination" : "/tmp/partitionLVM_XFS_50GB.sh",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      }, 
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/chef_install.sh",
-                             "destination" : "/tmp/chef_install.sh",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },  
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/buildInspecDependancies.sh",
-                             "destination" : "/tmp/buildInspecDependancies.sh",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/kitchen-cloudformation.gemspec.1",
-                             "destination" : "/tmp/kitchen-cloudformation.gemspec.1",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      }, 
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/kitchen-cloudformation-sample.yml",
-                             "destination" : "/tmp/kitchen-cloudformation-sample.yml",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },
-                      {
-                        "file": 
-                        {
-                             "source"    : "./files/kitchen-cloudformation.gemspec.2",
-                             "destination" : "/tmp/kitchen-cloudformation.gemspec.2",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },
-                      {
-                      "file": 
-                        {
-                             "source"    : "./files/defaultBackground.png",
-                             "destination" : "/tmp/defaultBackground.png",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      }, 
-                      {
-                      "file": 
-                        {
-                             "source"    : "./files/01-background",
-                             "destination" : "/tmp/01-background",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },
-                      {
-                      "file": 
-                        {
-                             "source"    : "./files/pycharm.desktop",
-                             "destination" : "/tmp/pycharm.desktop",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },
-                      {
-                      "file": 
-                        {
-                             "source"    : "./files/rubymine.desktop",
-                             "destination" : "/tmp/rubymine.desktop",
-                             "connection": 
-                             {
-                                  "type": "ssh",
-                                  "timeout": "300s",
-                                  "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
-                                  "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
-                             }
-                        }
-                      },                      
                       {
                         "file": 
                         {
@@ -244,58 +58,18 @@
                                   "type": "ssh",
                                   "timeout": "300s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
+                                  "private_key" : "${file(\"${var.private_key_path}\")}",
                                   "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
+                                  "host" : "${var.private_ip_address}"
                              }
                         }
-                      },                 
+                      },
                       {
                         "remote-exec": 
                         {
                              "inline": 
                              [
-                              "sudo yum -y update",
-                              "sudo yum -y install wget nano gcc gcc-c++ dos2unix",
-                              "sudo wget -O /tmp/${var.chef_workstation_rpm_name}  ${var.chef_workstation_rpm_url}",
-                              "sudo rpm -Uvh /tmp/${var.chef_workstation_rpm_name}",
-                              "sudo yum -y groupinstall \"Server with GUI\"",
-                              "sudo ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target",
-                              "sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
-                              "sudo yum install -y https://repo.ius.io/ius-release-el7.rpm",
-                              "sudo yum install -y python36u python36u-pip",
-                              "sudo yum -y install xrdp tigervnc-server",
-                              "sudo systemctl start xrdp",
-                              "sudo systemctl enable xrdp",
-                              "sudo firewall-offline-cmd --add-port=3389/tcp",
-                              "sudo firewall-cmd --permanent --add-port=3389/tcp",
-                              "sudo firewall-cmd --reload",
-                              "sudo chcon --type=bin_t /usr/sbin/xrdp",
-                              "sudo chcon --type=bin_t /usr/sbin/xrdp-sesman",
-                              "sudo cp /tmp/01-background /etc/dconf/db/local.d/01-background",
-                              "sudo chmod 644 /etc/dconf/db/local.d/01-background",
-                              "sudo dconf update",
-                              "sudo useradd ${var.default_user_name}",
-                              "echo \"${var.default_user_password}\" | sudo passwd --stdin ${var.default_user_name}",
-                              "sudo usermod -aG wheel ${var.default_user_name}",
-                              "sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo",
-                              "sudo yum -y install sublime-text",
-                              "sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc",
-                              "sudo sh -c 'echo -e \"[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc\" > /etc/yum.repos.d/vscode.repo'",
-                              "sudo yum -y install code",
-                              "wget -O /tmp/RubyMine-2020.3.1.tar.gz https://download.jetbrains.com/ruby/RubyMine-2020.3.1.tar.gz",
-                              "sudo tar -C /opt -xzvf /tmp/RubyMine-2020.3.1.tar.gz",
-                              "sudo chown -R ${var.default_user_name}. /opt/RubyMine-2020.3.1/",
-                              "sudo cp /tmp/rubymine.desktop /usr/share/applications/rubymine.desktop",
-                              "sudo chmod 644 /usr/share/applications/rubymine.desktop",
-                              "sudo mkdir /opt/projects",
-                              "sudo chown ${var.default_user_name}. /opt/projects",
-                              "sudo chmod 755 /opt/projects",
-                              "dos2unix /tmp/chef_install.sh",
-                              "sudo chmod 755 /tmp/chef_install.sh",
-                              "sudo chown root. /tmp/chef_install.sh",
-                              "sudo mv /tmp/chef_install.sh  /root/chef_install.sh",
-                              "echo \"@reboot root /root/chef_install.sh &\" | sudo tee -a /etc/crontab",                              
+                              "#sudo yum -y update",
                               "touch /tmp/reboot_now.txt"
                              ],
                              "connection": 
@@ -303,9 +77,9 @@
                                   "type": "ssh",
                                   "timeout": "1200s",
                                   "user": "${var.ami_default_user}",
-                                  "private_key" : "${file(\"./private/${var.key_name}.pem\")}",
+                                  "private_key" : "${file(\"${var.private_key_path}\")}",
                                   "agent": "false",
-                                  "host" : "${aws_instance.base.public_ip}"
+                                  "host" : "${var.private_ip_address}"
                              }
                         }
                       }
