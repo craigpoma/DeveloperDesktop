@@ -133,14 +133,16 @@ sudo sysctl -w net.core.wmem_max=8388608
 ####################################################################################
 # START - Customize Login Page for RDP - 1600 x 1200 Optimized
 ####################################################################################
-sudo yum install ImageMagick ImageMagick-devel -y
-sudo wget https://cdn.pixabay.com/photo/2017/05/10/12/41/hacker-2300772_960_720.jpg
-# sudo mogrify -format bmp hacker-2300772_960_720.jpg
-sudo convert hacker-2300772_960_720.jpg -verbose -depth 24 bg_logo.bmp
-sudo mogrify -resize 200% bg_logo.bmp
-sudo wget https://thumbs.dreamstime.com/b/cyber-security-lock-digital-screen-data-protection-business-technology-privacy-concept-172057525.jpg
-sudo convert cyber-security-lock-digital-screen-data-protection-business-technology-privacy-concept-172057525.jpg -verbose -depth 24 login_banner.bmp
-sudo mogrify -resize 800x600 login_banner.bmp
+# sudo yum install ImageMagick ImageMagick-devel -y
+# sudo wget https://cdn.pixabay.com/photo/2017/05/10/12/41/hacker-2300772_960_720.jpg
+# # sudo mogrify -format bmp hacker-2300772_960_720.jpg
+# sudo convert hacker-2300772_960_720.jpg -verbose -depth 24 bg_logo.bmp
+# sudo mogrify -resize 200% bg_logo.bmp
+# sudo wget https://thumbs.dreamstime.com/b/cyber-security-lock-digital-screen-data-protection-business-technology-privacy-concept-172057525.jpg
+# sudo convert cyber-security-lock-digital-screen-data-protection-business-technology-privacy-concept-172057525.jpg -verbose -depth 24 login_banner.bmp
+# sudo mogrify -resize 800x600 login_banner.bmp
+sudo wget https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/login_banner.bmp
+sudo wget https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/bg_logo.bmp
 sudo chmod 644 login_banner.bmp bg_logo.bmp
 sudo chown root. login_banner.bmp bg_logo.bmp
 sudo mv login_banner.bmp /usr/share/xrdp/login_banner.bmp
