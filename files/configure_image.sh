@@ -27,8 +27,18 @@
 #       Cannot place in the initial USERDATA due to USERDATA size limit of 16k of data 
 #
 # sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/master/files/configure_image.sh
-# sudo chmod 700 configure_image.sh
-# /root/scripts/configure_image.sh
+# sudo wget -O /root/scripts/configure_image.sh https://raw.githubusercontent.com/cpoma/DeveloperDesktop/script_gui/files/configure_image.sh
+# sudo chmod 700 /root/scripts/configure_image.sh
+# echo "@reboot root /root/scripts/configure_image.sh &" | sudo tee -a /etc/crontab
+#
+####################################################################################
+####################################################################################
+####################################################################################
+#
+# Remove from crontab the configure_image.sh so it will not run at next boot.
+#
+sed -i 's/\@reboot root \/root\/scripts\/configure_image.sh \&//' /etc/crontab 
+#
 #
 #
 sudo mkdir /root/rpms
