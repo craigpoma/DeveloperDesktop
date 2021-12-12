@@ -37,7 +37,7 @@ If you are just going to the "manual route:
 the following SPEL linux images.
 * For more info on SPEL Linux see - [STIG-Partitioned Enterprise Linux (spel)](https://github.com/plus3it/spel)
 
-## Usage with USERDATA script approach - no software required - but required AWS Console Access
+## Usage with USERDATA script approach - no software required - but requires AWS Console Access
 Just add this text/script to the USERDATA section of the Launch AMI process. This field is located at the bottom of 
 the Step 3: Configure Instance Details when launching an AMI.
 
